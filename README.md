@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-Enabled-green.svg)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-green.svg)
 
 A production-grade Retrieval-Augmented Generation (RAG) and Agentic Workflow evaluation system. Designed to build, orchestrate, and evaluate multi-step reasoning agents that combine semantic vector retrieval with specialized tool calling and structured execution traces.
 
