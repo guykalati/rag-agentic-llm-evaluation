@@ -1,0 +1,183 @@
+{
+  "reviewer": "Codex source inspection; not expert gold or an independent-model benchmark",
+  "scope": "Targeted error analysis after all36cases completed. All36responses were inspected against questions and saved references; listed findings are illustrative, not a replacement score or expert annotation.",
+  "findings": [
+    {
+      "id": "py312_01",
+      "strategy": "bm25",
+      "response_sha256": "2924d41ac8b47618e3dc0fe6b62aba517e9367243c486006c4da0b254f6687cf",
+      "finding": "Faithfulness false negative: parents=True and exist_ok=True satisfy the requested directory behavior. The judge rejects normative wording rather than the described semantics. Existing target is explicitly a directory in question and answer; existing-file failure remains outside this stated case.",
+      "raw_faithfulness": 0.0,
+      "judge_calls": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "py312_01",
+      "strategy": "dense",
+      "response_sha256": "fde560ae4ecd3a0201944612f77d68326bd3d0776cb53d9c5f9c4c7c6c988028",
+      "finding": "Faithfulness false negative: parents=True and exist_ok=True satisfy the requested directory behavior. The judge rejects normative wording rather than the described semantics. Existing target is explicitly a directory in question and answer; existing-file failure remains outside this stated case.",
+      "raw_faithfulness": 0.0,
+      "judge_calls": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "py312_01",
+      "strategy": "hybrid",
+      "response_sha256": "96d1699b9f542dcf0b08a19ff64fa449728e998ca474da014eb7059b37425338",
+      "finding": "Faithfulness false negative: parents=True and exist_ok=True satisfy the requested directory behavior. The judge rejects normative wording rather than the described semantics. Existing target is explicitly a directory in question and answer; existing-file failure remains outside this stated case.",
+      "raw_faithfulness": 0.0,
+      "judge_calls": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "py312_02",
+      "strategy": "hybrid",
+      "response_sha256": "6f72ef2c7d1f921b5480ec4b74651821e6e4a5c813605991887104a177ca3f78",
+      "finding": "Faithfulness false negative for the first extracted statement: the antecedent of \"this behavior\" is supplied by the question and the remaining answer. The three concrete ensure_ascii statements are accepted; the vague pronoun causes a 0.75 score.",
+      "raw_faithfulness": 0.75,
+      "judge_calls": [
+        35,
+        36
+      ]
+    },
+    {
+      "id": "py312_05",
+      "strategy": "bm25",
+      "response_sha256": "f412f72abd1d129355cd36bce63d1df6d5f070c5b8cb18501c3540233359821e",
+      "finding": "Real wrong answer despite faithfulness1: retrieval supplies Popen.communicate timeout behavior; the question asks subprocess.run, which kills and waits for the child. Context precision/recall both0 correctly flag missing reference evidence. Faithfulness tests support by retrieved text, not question-answer correctness or API identity.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        77,
+        78
+      ]
+    },
+    {
+      "id": "py312_06",
+      "strategy": "dense",
+      "response_sha256": "3911dd2ca41a590802fa3fa6ad5a205580e1761098101d753bbf3e6f65c86145",
+      "finding": "Answer merges unittest failure and error outcomes. No exception is a failed assertion; a different exception is an error. The retrieved chunk describes this distinction, but the generator says both are failures and the faithfulness judge returns1. This is a missed factual distinction, not merely a low-score false negative.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        101,
+        102
+      ]
+    },
+    {
+      "id": "py312_06",
+      "strategy": "hybrid",
+      "response_sha256": "159484f9eb9a6548c1070513ab9af5f762f1392fc0fac9741fc4ac19224c1cea",
+      "finding": "Answer merges unittest failure and error outcomes. No exception is a failed assertion; a different exception is an error. The retrieved chunk describes this distinction, but the generator says both are failures and the faithfulness judge returns1. This is a missed factual distinction, not merely a low-score false negative.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        107,
+        108
+      ]
+    },
+    {
+      "id": "py312_08",
+      "strategy": "bm25",
+      "response_sha256": "dafd02c218f4ae49b0ff826b75119822426d204aa9c5f5b1867a5c693d6d1726",
+      "finding": "Real explanatory gap: mentions automatic basicConfig setup rather than directly explaining the no-op when handlers already exist. It correctly identifies force, but spells True as lowercase true, which is invalid if copied literally into Python. Faithfulness1 does not certify runnable syntax.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        131,
+        132
+      ]
+    },
+    {
+      "id": "py312_08",
+      "strategy": "dense",
+      "response_sha256": "40be1d4f2d7370cac2f111b8fe85e0f7574e1957c407a6860f2d72a589c58ed4",
+      "finding": "Citation-induced false negative: concrete basicConfig/force semantics are accepted, but statement extraction treats the cited chunk ID as an additional factual claim. RAGAS receives text-only contexts, so the judge cannot see their IDs and rejects this metadata claim. The cited ID exists among the retrieved chunks.",
+      "raw_faithfulness": 0.6666666666666666,
+      "judge_calls": [
+        137,
+        138
+      ]
+    },
+    {
+      "id": "py312_08",
+      "strategy": "hybrid",
+      "response_sha256": "40be1d4f2d7370cac2f111b8fe85e0f7574e1957c407a6860f2d72a589c58ed4",
+      "finding": "Citation-induced false negative: concrete basicConfig/force semantics are accepted, but statement extraction treats the cited chunk ID as an additional factual claim. RAGAS receives text-only contexts, so the judge cannot see their IDs and rejects this metadata claim. The cited ID exists among the retrieved chunks.",
+      "raw_faithfulness": 0.6666666666666666,
+      "judge_calls": [
+        143,
+        144
+      ]
+    },
+    {
+      "id": "py312_09",
+      "strategy": "bm25",
+      "response_sha256": "781f25cc4e27e3fe9b1fd4d63905333b0eaaa94bb6b5235eda78e6e1cf90072c",
+      "finding": "Real answer omission: does not name the exact placeholder syntax and claims documentation does not specify it, although the full source does. Retrieved contexts are limited. The judge also invents a stronger statement that parameters are required, while the answer only describes passing parameters for the user-value case. High context recall does not guarantee a complete generated answer.",
+      "raw_faithfulness": 0.6666666666666666,
+      "judge_calls": [
+        149,
+        150
+      ]
+    },
+    {
+      "id": "py312_09",
+      "strategy": "dense",
+      "response_sha256": "b937262db0a909fd1dbabb1c19ece8a76dd677451728220cd58841b4c0d7d842",
+      "finding": "Statement extraction splits a two-item list into two claims, then the judge rejects each because neither is the only supported style. The answer actually names both qmark and named styles. Real limitation: it does not explain that named parameters require a dictionary; its general tuple instruction is incomplete for that style.",
+      "raw_faithfulness": 0.6,
+      "judge_calls": [
+        155,
+        156
+      ]
+    },
+    {
+      "id": "py312_10",
+      "strategy": "dense",
+      "response_sha256": "f6ad0b2e883f0e553753320c85716600e5b56fb58eb891136de06671c214b067",
+      "finding": "Citation-induced false negative: judge extracts sqlite3:010340 as an error code. It is an actual retrieved chunk citation, not a SQLite error code. The five concrete transaction/connection statements are accepted.",
+      "raw_faithfulness": 0.8333333333333334,
+      "judge_calls": [
+        173,
+        174
+      ]
+    },
+    {
+      "id": "py312_12",
+      "strategy": "bm25",
+      "response_sha256": "a6169272cd0b50cd943958e5bc30b9536a1f4db51deab598d091c4af358df035",
+      "finding": "Real multi-source composition failure: read_text returns a string, but the answer names json.load, which expects a file-like object, instead of json.loads. Faithfulness1 and context recall1 miss the incompatible handoff. This answer is not executable as a composed read_text\u2192load pipeline.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        203,
+        204
+      ]
+    },
+    {
+      "id": "py312_12",
+      "strategy": "dense",
+      "response_sha256": "0ead06ad5077afdde371f7aa515603744f07281d654c1095e78fbb3f8078e48f",
+      "finding": "Real incomplete answer: names read_text but does not identify json.loads. Context recall0.5 captures missing JSON evidence; faithfulness1 only assesses the generic supported statements that were generated.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        209,
+        210
+      ]
+    },
+    {
+      "id": "py312_12",
+      "strategy": "hybrid",
+      "response_sha256": "facc6408d3b5e87fc1b84b69b06550e202cecdb92ded0633e88b6cbf5a6ce650",
+      "finding": "Real incomplete/wrong interface choice: names JSONDecoder rather than the requested json.loads function and does not explain how to consume the text. Context recall0.5 captures the missing reference evidence; faithfulness1 does not certify task completion.",
+      "raw_faithfulness": 1.0,
+      "judge_calls": [
+        215,
+        216
+      ]
+    }
+  ],
+  "result_sha256": "bb8f8acc63e4a2812277da42febd15f756c381ad078c6f01b385817285bb8daf"
+}

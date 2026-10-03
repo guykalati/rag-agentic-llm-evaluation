@@ -1,6 +1,6 @@
 # CV evidence closure
 
-[Executable coding-agent and real RAG evaluation](cv-closure/README.md): pinned documentation corpus, BM25/dense/hybrid retrieval, local generated answers and actual RAGAS judging. Full benchmark is running; final scores are pending. Historical CV RAGAS numbers and subsecond end-to-end latency remain unverified.
+[Executable coding-agent and real RAG evaluation](cv-closure/README.md): pinned documentation corpus, BM25/dense/hybrid retrieval, local generated answers and actual RAGAS judging. The full36-case benchmark and independent108-metric audit are complete. Hybrid measured precision0.8889, recall0.9583 and faithfulness0.8681, with21.029-second median complete answer latency. [Results and error analysis](cv-closure/README.md#verified-results--4-october-2026) document wrong answers and judge errors. Historical CV numeric scores and subsecond end-to-end latency must be revised; the CV file is unchanged.
 
 # Bounded repository repair and ML experiment agent
 

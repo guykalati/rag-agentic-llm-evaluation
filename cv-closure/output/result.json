@@ -1,0 +1,140 @@
+{
+  "status": "completed",
+  "smoke": false,
+  "rows": 36,
+  "summary": {
+    "bm25": {
+      "ragas": {
+        "context_precision": {
+          "mean": 0.8194444443951389,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        },
+        "context_recall": {
+          "mean": 0.9166666666666666,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        },
+        "faithfulness": {
+          "mean": 0.861111111111111,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        }
+      },
+      "latency": {
+        "retrieval_seconds": {
+          "median_seconds": 0.0460239790045307,
+          "p95_seconds": 0.05598722920076397
+        },
+        "embedding_seconds": {
+          "median_seconds": 0.0,
+          "p95_seconds": 0.0
+        },
+        "generation_seconds": {
+          "median_seconds": 21.343811916998675,
+          "p95_seconds": 24.64991648544783
+        },
+        "query_to_answer_seconds": {
+          "median_seconds": 21.391922291499213,
+          "p95_seconds": 24.701998904649734
+        }
+      }
+    },
+    "dense": {
+      "ragas": {
+        "context_precision": {
+          "mean": 0.7638888888340277,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        },
+        "context_recall": {
+          "mean": 0.9583333333333334,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        },
+        "faithfulness": {
+          "mean": 0.8416666666666667,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        }
+      },
+      "latency": {
+        "retrieval_seconds": {
+          "median_seconds": 0.3541138749969832,
+          "p95_seconds": 0.4428626190507202
+        },
+        "embedding_seconds": {
+          "median_seconds": 0.3416646875011793,
+          "p95_seconds": 0.4295497248469473
+        },
+        "generation_seconds": {
+          "median_seconds": 21.25597658350307,
+          "p95_seconds": 24.230528939398937
+        },
+        "query_to_answer_seconds": {
+          "median_seconds": 21.622642083500978,
+          "p95_seconds": 24.614303275000566
+        }
+      }
+    },
+    "hybrid": {
+      "ragas": {
+        "context_precision": {
+          "mean": 0.8888888888354166,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        },
+        "context_recall": {
+          "mean": 0.9583333333333334,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        },
+        "faithfulness": {
+          "mean": 0.8680555555555555,
+          "valid_n": 12,
+          "total_n": 12,
+          "failed_or_undefined": 0
+        }
+      },
+      "latency": {
+        "retrieval_seconds": {
+          "median_seconds": 0.3432500000017171,
+          "p95_seconds": 0.45187475639868346
+        },
+        "embedding_seconds": {
+          "median_seconds": 0.2798217290001048,
+          "p95_seconds": 0.38790082279665505
+        },
+        "generation_seconds": {
+          "median_seconds": 20.644335395500093,
+          "p95_seconds": 24.26466098505225
+        },
+        "query_to_answer_seconds": {
+          "median_seconds": 21.02881247899859,
+          "p95_seconds": 24.54695969129716
+        }
+      }
+    }
+  },
+  "ragas_version": "0.4.3",
+  "model": "gemma4:12b-it-qat",
+  "think": false,
+  "judge_calls": 216,
+  "seconds": 7486.102358541997,
+  "startup_seconds": 0.10277495800255565,
+  "hardware": "macOS-27.0.1-arm64-arm-64bit arm64",
+  "sources_sha256": {
+    "questions.json": "08406417530c4e49465147907b724dcec69c8a3db3d35da2ed3d1c2e786c40a5",
+    "manifest.json": "ea0c0b1d8f993c3259bc26f28fb85bf88015be6f077dcf3e166abce91f6b4673",
+    "evaluate.py": "a0f5b955fc5cc9b1a038e083b6cd746ac260f35948465d6140f8ed043d12f329"
+  },
+  "limits": "Small fixed Python documentation benchmark, shared answer/judge model, model-judged metrics with preserved failures. Warm uncached answers, evaluation time excluded from query latency. No claim of generic RAG performance or sub-second end-to-end generation."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "rows": 36,
+  "metrics_recomputed_from_raw_judge_verdicts": 108,
+  "raw_prompt_hashes_and_runtime_binding_verified": true,
+  "latency_summaries_recomputed": true,
+  "failures_or_undefined": [],
+  "result_sha256": "bb8f8acc63e4a2812277da42febd15f756c381ad078c6f01b385817285bb8daf",
+  "limits": "Verifies provenance and calculations, not judge correctness. Judge false negatives need manual review."
+}
