@@ -68,6 +68,11 @@
       "bytes": 2060
     },
     {
+      "source_relative_path": "AUTORESEARCH_STATEMENT_REPLAY_RESULT_2026-10-03.md",
+      "sha256": "75cd82b7bb6357124ad310b585d63095042af27da11670c9a17bd9ef7094601b",
+      "bytes": 1660
+    },
+    {
       "source_relative_path": "CLUSTER_ACCESS_2026-09-28.md",
       "sha256": "f8719e5d861f590c27ba5d8512f5e005039e706e316a980ef3c8f7428dd19b52",
       "bytes": 6556
@@ -1346,6 +1351,11 @@
       "source_relative_path": "implementation/runtime_paired_proposals_v2.py",
       "sha256": "cfb17678d56194db56531a4ec287f49afc42e479a163d937f7e6e9be37e52cce",
       "bytes": 3728
+    },
+    {
+      "source_relative_path": "implementation/runtime_statement_gpu_audit_2026-10-03.json",
+      "sha256": "3d79c82a28063477bb22e8f3ebe4793745ffd0cda820c815c75257a4a48bc539",
+      "bytes": 1423
     },
     {
       "source_relative_path": "implementation/runtime_statement_gpu_manifest_2026-10-03.json",

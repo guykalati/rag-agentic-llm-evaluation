@@ -1,0 +1,30 @@
+{
+  "status": "audited_complete",
+  "job_id": "22001602",
+  "allocated_gpu_seconds": 1217,
+  "raw_sha256": "112c2818d93c00a3e8c29bbefe25a6d3014bd26e4d95a258df1c6cedb734c9b9",
+  "verifier_sha256": "be532b582d1510c8489948a5ac1e83a79eb61bacd23b10e96ca66b3bf8e3f8c2",
+  "manifest_sha256": "2b6b07865ab6d525737652b5016d2e4409d21be60df60204359867cbcd3484b9",
+  "candidate_sha256": "09009f8379bc211c415bf72b867a9ef0ec908b40a135e6a4dd50ad7df15fd53e",
+  "checkpoint_sha256": "9937ec0eae36d37e7ef3d3a939bdb6cd218c2933bdf39fcf59c7a5f8d55f0f54",
+  "profile": {
+    "width": 384,
+    "heads": 8,
+    "head_dimension": 48,
+    "feed_forward": 1536,
+    "layers": 4,
+    "parameter_count": 7295232,
+    "scope": "Protected Model with256byte tokens,256positions and tied output embedding only; not a runtime prediction."
+  },
+  "val_bpb": 0.9169007335424967,
+  "independent_val_bpb": 0.9169007335424967,
+  "historical_incumbent_val_bpb": 0.9121882523777711,
+  "improvement_lower_is_better": -0.004712481164725557,
+  "incumbent_retained": true,
+  "steps": 34277,
+  "training_seconds": 1200.0354769099504,
+  "gpu_peak_bytes": 1022949888,
+  "gpu_name": "NVIDIA GeForce RTX 3090",
+  "output_bytes_remote": 29263556,
+  "limits": "One development candidate, historical same-seed reference, not a concurrent paired memory comparison or general architecture ranking. Inherited configuration label larger is not evidence of unchanged incumbent."
+}
