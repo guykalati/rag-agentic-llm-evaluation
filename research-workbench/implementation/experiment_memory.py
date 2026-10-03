@@ -48,6 +48,17 @@ def search(database: Path, terms: str, limit: int = 5) -> list[dict]:
             for row in rows]
 
 
+def read_snapshot(database: Path, limit: int = 17) -> list[dict]:
+    """Return the complete bounded development snapshot; fail if it grew."""
+    with closing(sqlite3.connect('file:' + str(database.resolve()) + '?mode=ro', uri=True)) as db:
+        rows = db.execute("SELECT source, run, status, metric, train_sha256, body "
+                          "FROM runs ORDER BY source, run LIMIT ?", (limit + 1,)).fetchall()
+    if len(rows) > limit:
+        raise ValueError('development snapshot exceeds frozen record cap')
+    return [dict(zip(('source', 'run', 'status', 'metric_value', 'train_sha256', 'text'), row))
+            for row in rows]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)

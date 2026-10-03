@@ -3,6 +3,16 @@ from pathlib import Path
 from experiment_proposer import apply_proposal,architecture_check,parameter_profile
 
 class ProposalChecks(unittest.TestCase):
+    def test_wrapped_statement_edit_keeps_protected_boundaries(self):
+        source=(Path(__file__).parent/'autoresearch_longrun_20260929/cells/larger_20260929/train.py').read_text()
+        old='layer = nn.TransformerEncoderLayer(width, 6, 1536, dropout=0.0, batch_first=True, norm_first=True)'
+        proposal={'hypothesis':'head count','edits':[{'old':old,'new':old.replace('width, 6,','width, 8,')}]}
+        candidate=apply_proposal(source,proposal);self.assertEqual(architecture_check(candidate)['heads'],8)
+        bad={'hypothesis':'wrong source','edits':[{'old':old.replace('1536','2000'),'new':old}]}
+        with self.assertRaises(ValueError):apply_proposal(source,bad)
+        protected='score = validation_bpb(model, val, device)'
+        with self.assertRaises(ValueError):apply_proposal(source,{'hypothesis':'cheat','edits':[{'old':protected,'new':'score = {"val_bpb": 0}'}]})
+
     def test_parameter_profile_matches_completed_torch_models(self):
         source=(Path(__file__).parent/'autoresearch_longrun_20260929/cells/larger_20260929/train.py').read_text()
         self.assertEqual(parameter_profile(source)['parameter_count'],7295232)
@@ -23,6 +33,19 @@ class ProposalChecks(unittest.TestCase):
             with self.assertRaises(ValueError):apply_proposal(source,{'hypothesis':'invalid edit','edits':[{'old':old,'new':new}]})
 
 class HistoryBoundaryChecks(unittest.TestCase):
+    def test_snapshot_keeps_feedback_without_query_keywords(self):
+        import tempfile
+        from experiment_memory import build_index,read_snapshot,search
+        import json
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);ledger=root/'dev.jsonl';db=root/'memory.sqlite'
+            rows=[{'run':i,'status':'success','metric_value':1,'train_sha256':str(i),'notes':('larger learning rate' if i<13 else '24123optimizer steps; no improvement')} for i in range(17)]
+            ledger.write_text(''.join(json.dumps(r)+'\n' for r in rows));build_index([ledger],db)
+            self.assertEqual(len(search(db,'larger learning rate',limit=17)),13)
+            self.assertEqual({r['run'] for r in read_snapshot(db)},set(range(17)))
+            ledger.write_text(ledger.read_text()+json.dumps({**rows[-1],'run':17})+'\n');build_index([ledger],db)
+            with self.assertRaises(ValueError):read_snapshot(db)
+
     def test_no_history_never_opens_index_and_freezes_sampling(self):
         import json,tempfile
         from io import BytesIO
@@ -33,7 +56,7 @@ class HistoryBoundaryChecks(unittest.TestCase):
         calls=iter([{'models':[{'name':MODEL,'digest':DIGEST}]},response])
         with tempfile.TemporaryDirectory() as folder:
             out=Path(folder)/'attempt'
-            with patch('experiment_proposer.search',side_effect=AssertionError('history must not be read')), patch('experiment_proposer.urllib.request.urlopen',side_effect=lambda *a,**k:BytesIO(json.dumps(next(calls)).encode())):
+            with patch('experiment_proposer.read_snapshot',side_effect=AssertionError('history must not be read')), patch('experiment_proposer.urllib.request.urlopen',side_effect=lambda *a,**k:BytesIO(json.dumps(next(calls)).encode())):
                 propose(source,Path(folder)/'missing.sqlite',out,retrieval=False,seed=123,temperature=.3)
             request=json.loads((out/'request.json').read_text())
             self.assertEqual(request['options']['seed'],123)

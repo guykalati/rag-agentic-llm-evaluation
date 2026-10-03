@@ -1,0 +1,52 @@
+{
+  "status": "audited_static_saved_response_replay",
+  "input_manifest_sha256": "b3413b1fac411055b04e733997210d6a5973733bfce7748c462140446114f955",
+  "original_ledger_sha256": "1a4075687dfb0fe61f899f1ef69cea1f174ea92aa0b3087af50ebf02c93cef26",
+  "updated_proposer_sha256": "895b308b72f232cf52ffe028740fbc8eac91cf1cb72faa07119d969ca04522bc",
+  "results": [
+    {
+      "proposal_id": "pair1_retrieval_attempt1",
+      "original_status": "invalid_exact_string_match",
+      "derived_status": "static_valid_with_unique_AST_statement_whitespace_match",
+      "request_sha256": "f458e749a47bc8c219b50fb46fc82a7492eddbc69c613eb7e1543282460402c2",
+      "response_sha256": "521e4775a7326a2beada22e6977db5cd2d1a2c606dc73935e523af64acce542b",
+      "candidate_sha256": "09009f8379bc211c415bf72b867a9ef0ec908b40a135e6a4dd50ad7df15fd53e",
+      "history_records": 17,
+      "paired_history_records": 4,
+      "profile": {
+        "width": 384,
+        "heads": 8,
+        "head_dimension": 48,
+        "feed_forward": 1536,
+        "layers": 4,
+        "parameter_count": 7295232,
+        "scope": "Protected Model with256byte tokens,256positions and tied output embedding only; not a runtime prediction."
+      },
+      "hypothesis": "Increasing the number of attention heads from 6 to 8 while maintaining the current width (384) and feed-forward dimension (1536) will improve validation bits per byte by allowing for more granular multi-head attention representations, which may improve learning efficiency within the fixed 1200-second training budget."
+    },
+    {
+      "proposal_id": "pair1_retrieval_attempt2",
+      "original_status": "invalid_exact_string_match",
+      "derived_status": "static_valid_with_unique_AST_statement_whitespace_match",
+      "request_sha256": "fac2176470b642e3ec5fa613d38ce8c09ab0a80f044c8ed41e7125d493b44de9",
+      "response_sha256": "81607dd139260af1df448da5c1c6f1511512a96283e4767d2254d65780ff3ada",
+      "candidate_sha256": "09009f8379bc211c415bf72b867a9ef0ec908b40a135e6a4dd50ad7df15fd53e",
+      "history_records": 17,
+      "paired_history_records": 4,
+      "profile": {
+        "width": 384,
+        "heads": 8,
+        "head_dimension": 48,
+        "feed_forward": 1536,
+        "layers": 4,
+        "parameter_count": 7295232,
+        "scope": "Protected Model with256byte tokens,256positions and tied output embedding only; not a runtime prediction."
+      },
+      "hypothesis": "Increasing the number of attention heads from 6 to 8 while maintaining the model width of 384 will improve the validation bits/byte by allowing for finer-grained multi-head attention representations, which may lead to better convergence within the fixed 1200-second training budget compared to the current 6-head configuration."
+    }
+  ],
+  "unique_candidates": 1,
+  "new_generation_calls": 0,
+  "gpu_runs": 0,
+  "limits": "One unique saved proposal from complete-history arm, derived AST whitespace transport repair. No no-history candidate; not a completed paired training comparison. No new model calls, one GPU run maximum, no restart."
+}

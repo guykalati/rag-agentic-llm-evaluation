@@ -1,5 +1,5 @@
 # Current status — 3 October 2026
 
-Earlier proposed TinyStories candidates did not beat the incumbent; memory benefit remains unproven. A fresh one-pair runtime-feedback protocol is frozen: memory on/off, up to four local calls and two 20-minute candidate training runs (44 allocated GPU-minute ceiling). The repaired 17-record development index and parameter-accounting prompt passed three existing boundary/isolation checks. New proposal generation waits for the separate article-model campaign; no new agent GPU training has begun.
+The runtime memory selection bug is fixed:all17bounded development records now reach the memory arm. A whitespace-sensitive edit failure is fixed through unique identical AST-statement matching; five tests pass and protected evaluator/numeric boundaries remain enforced. Historical duplicate candidates were rejected. A separately audited saved-response replay yields one unique eight-head candidate without new generation calls. Job22001602 is submitted with one20-minute training run/22-minute allocation cap and no restart. Its result is pending. Retrieval benefit remains unproven; no no-history candidate is eligible for paired training.
 
-The HTML walkthrough records the earlier snapshot. Read the dated continuation reports for these subsequent runs. Historical pending statements are preserved.
+The HTML walkthrough is the earlier snapshot. Read the dated continuation reports for subsequent repairs/results; historical pending states remain preserved.

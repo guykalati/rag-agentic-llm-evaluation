@@ -53,6 +53,21 @@
       "bytes": 2220
     },
     {
+      "source_relative_path": "AUTORESEARCH_RUNTIME_PAIR_REPAIR_2026-10-03.md",
+      "sha256": "9ce4f67c693c207afef893f7d788ece6594adaee5b571998dd429d2a4592765b",
+      "bytes": 2330
+    },
+    {
+      "source_relative_path": "AUTORESEARCH_RUNTIME_PAIR_RESULT_2026-10-03.md",
+      "sha256": "df48c766023985aea02868300fe23dc2a87f3c8251b33c8c7ccae74dc1a9afb8",
+      "bytes": 2528
+    },
+    {
+      "source_relative_path": "AUTORESEARCH_STATEMENT_REPLAY_PROTOCOL_2026-10-03.md",
+      "sha256": "dd21526734feeeac460effec9a9505dfd4b8aef1657486aa7a375584b74ce683",
+      "bytes": 2060
+    },
+    {
       "source_relative_path": "CLUSTER_ACCESS_2026-09-28.md",
       "sha256": "f8719e5d861f590c27ba5d8512f5e005039e706e316a980ef3c8f7428dd19b52",
       "bytes": 6556
@@ -959,8 +974,8 @@
     },
     {
       "source_relative_path": "implementation/experiment_memory.py",
-      "sha256": "6264d5fe4ce6844e17d07a456595439f76c29ea0b04c0ba1e9f72cc668196e87",
-      "bytes": 2896
+      "sha256": "e0eb1e7b593fd7fa6dca871616666b6317baa7138fccc793fb1088f6522da638",
+      "bytes": 3543
     },
     {
       "source_relative_path": "implementation/experiment_memory_runtime_manifest_2026-10-02.json",
@@ -969,8 +984,8 @@
     },
     {
       "source_relative_path": "implementation/experiment_proposer.py",
-      "sha256": "d913f99666fc4738c8360f47c7dfdb3e3d288d44244986bda3a66e7de74a148f",
-      "bytes": 11589
+      "sha256": "895b308b72f232cf52ffe028740fbc8eac91cf1cb72faa07119d969ca04522bc",
+      "bytes": 12477
     },
     {
       "source_relative_path": "implementation/incart_metadata_inventory.py",
@@ -1318,14 +1333,34 @@
       "bytes": 1316
     },
     {
+      "source_relative_path": "implementation/runtime_pair_v2_manifest_2026-10-03.json",
+      "sha256": "b3413b1fac411055b04e733997210d6a5973733bfce7748c462140446114f955",
+      "bytes": 2508
+    },
+    {
       "source_relative_path": "implementation/runtime_paired_proposals.py",
       "sha256": "1bafed8e5488f19d02c62f79274a71d29a00848b8fd854c482c06524668c4799",
       "bytes": 3239
     },
     {
+      "source_relative_path": "implementation/runtime_paired_proposals_v2.py",
+      "sha256": "cfb17678d56194db56531a4ec287f49afc42e479a163d937f7e6e9be37e52cce",
+      "bytes": 3728
+    },
+    {
+      "source_relative_path": "implementation/runtime_statement_gpu_manifest_2026-10-03.json",
+      "sha256": "2b6b07865ab6d525737652b5016d2e4409d21be60df60204359867cbcd3484b9",
+      "bytes": 1754
+    },
+    {
+      "source_relative_path": "implementation/runtime_statement_replay_audit_2026-10-03.json",
+      "sha256": "cc7dc8ece6beee8c21ab8d2e8a7ff43397ead53ed8f21041e712a686be0006f2",
+      "bytes": 3066
+    },
+    {
       "source_relative_path": "implementation/test_experiment_proposer.py",
-      "sha256": "080362f071fa1ee3eb204d64851fa4c9ec533615e58e2b72f1096d435ab253f5",
-      "bytes": 3467
+      "sha256": "02a41184c6040c6767526d4ff30657d4dc3dba2e506cdb6dcd5be985feda3e08",
+      "bytes": 5316
     },
     {
       "source_relative_path": "implementation/test_foundations.py",

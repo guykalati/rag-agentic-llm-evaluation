@@ -4,9 +4,10 @@ import ast
 import hashlib
 import json
 import time
+import textwrap
 import urllib.request
 from pathlib import Path
-from experiment_memory import search
+from experiment_memory import read_snapshot
 
 MODEL='gemma4:12b-it-qat'
 DIGEST='38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3'
@@ -47,7 +48,20 @@ def apply_proposal(source, proposal):
         if set(edit)!={'old','new'} or not all(isinstance(edit[k],str) for k in edit):
             raise ValueError('invalid replacement')
         old,new=edit['old'],edit['new']
-        if not old or source.count(old)!=1 or max(len(old),len(new))>8000:
+        if not old or max(len(old),len(new))>8000:
+            raise ValueError('replacement must match once and fit cap')
+        if source.count(old)==0:
+            # A single complete statement may differ only in source whitespace.
+            old_tree=ast.parse(textwrap.dedent(old).strip())
+            new_tree=ast.parse(textwrap.dedent(new).strip())
+            if len(old_tree.body)!=1 or len(new_tree.body)!=1:
+                raise ValueError('whitespace fallback requires one complete statement')
+            signature=ast.dump(old_tree.body[0],include_attributes=False)
+            matches=[n for n in ast.walk(ast.parse(source)) if isinstance(n,ast.stmt) and ast.dump(n,include_attributes=False)==signature]
+            if len(matches)!=1:
+                raise ValueError('statement must match exactly once in syntax tree')
+            old=ast.get_source_segment(source,matches[0]);new=textwrap.dedent(new).strip()
+        if source.count(old)!=1:
             raise ValueError('replacement must match once and fit cap')
         source=source.replace(old,new,1)
     candidate=ast.parse(source)
@@ -120,7 +134,7 @@ def propose(source_path, database, output, *, retrieval=True, seed=None, tempera
         tags=json.load(response)
     assert any(m['name']==MODEL and m['digest']==DIGEST for m in tags['models']), 'local model changed'
     source=source_path.read_text()
-    history=search(database,'larger learning rate cosine',limit=11) if retrieval else []
+    history=read_snapshot(database,limit=17) if retrieval else []
     schema={'type':'object','properties':{'hypothesis':{'type':'string'},'edits':{'type':'array','minItems':1,'maxItems':2,
         'items':{'type':'object','properties':{'old':{'type':'string'},'new':{'type':'string'}},'required':['old','new'],'additionalProperties':False}}},
         'required':['hypothesis','edits'],'additionalProperties':False}
