@@ -1,0 +1,14 @@
+.
+=============================== warnings summary ===============================
+../wheels/nose-1.3.7-py3-none-any.whl/nose/config.py:142
+../wheels/nose-1.3.7-py3-none-any.whl/nose/config.py:142
+  /wheels/nose-1.3.7-py3-none-any.whl/nose/config.py:142: DeprecationWarning: invalid escape sequence \.
+
+../wheels/nose-1.3.7-py3-none-any.whl/nose/plugins/manager.py:418
+  /wheels/nose-1.3.7-py3-none-any.whl/nose/plugins/manager.py:418: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+
+../wheels/nose-1.3.7-py3-none-any.whl/nose/importer.py:12
+  /wheels/nose-1.3.7-py3-none-any.whl/nose/importer.py:12: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+1 passed, 4 warnings in 0.47s

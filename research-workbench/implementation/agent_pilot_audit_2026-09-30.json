@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "job": 21894420,
+  "candidate_id": "agent_step2",
+  "candidate": {
+    "status": "success",
+    "metric_name": "val_bpb",
+    "metric_value": 0.9666173553131943,
+    "val_bpb": 0.9666173553131943,
+    "validation_bytes_scored": 2097152,
+    "training_seconds": 1200.0666606728919,
+    "train_loss_nats_last_logged": 0.672771692276001,
+    "steps": 25789,
+    "seed": 20260929,
+    "configuration": "larger",
+    "parameter_count": 9854784,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_peak_bytes": 1177445888,
+    "torch_version": "2.5.1+cu124",
+    "prepare_sha256": "5bc36d8887eca3cd99c92979d0ec6104a3dc6b201cd5258cd845de19292a5c6b",
+    "train_sha256": "3c47a734c24347d4482956e2740ae6143354e88a3532487dc547b1a46efde560",
+    "data_manifest_sha256": "2b09b99c0ce2d13cc86fdca057fba630d309081050af20d782ba879d16619d84",
+    "checkpoint_sha256": "e0e7cd54c1529a8c55434f1b4a968370f737ae1ae6f1fab3e302750d8d911041"
+  },
+  "independent_verifier": {
+    "verified": true,
+    "independent_val_bpb": 0.9666173553131943,
+    "validation_bytes_scored": 2097152,
+    "checkpoint_sha256": "e0e7cd54c1529a8c55434f1b4a968370f737ae1ae6f1fab3e302750d8d911041"
+  },
+  "reference_val_bpb": 0.9121882523777711,
+  "delta_bpb": 0.054429102935423135,
+  "decision": "discard",
+  "ledger": {
+    "runs": 2,
+    "remaining": 0,
+    "best": {
+      "run": 2,
+      "recorded_at_utc": "2026-09-30T19:44:54.346448+00:00",
+      "status": "success",
+      "metric_name": "val_bpb",
+      "metric_value": 0.9666173553131943,
+      "training_seconds": 1200.0666606728919,
+      "train_sha256": "3c47a734c24347d4482956e2740ae6143354e88a3532487dc547b1a46efde560",
+      "candidate_file": "cells/agent_step2/train.py",
+      "hypothesis": "Increasing the model width from 384 to 480 (maintaining divisibility by 6 heads) will improve validation bits per byte by increasing representational capacity while remaining within the 1200-second training budget on a single RTX3090.",
+      "failure_reason": "",
+      "notes": "Independently verified. Decision: discard; frozen same-seed reference 0.9121882523777711. Width480 candidate, not unchanged larger reference despite inherited configuration label. Memory benefit unmeasured."
+    }
+  },
+  "gpu_allocation_seconds": 1219,
+  "limits": "Single adaptive development seed. Independent scoring by pinned GPU verifier; local audit checks records and hashes. Retrieval benefit unmeasured. Failed first architecture consumed zero GPU allocation."
+}

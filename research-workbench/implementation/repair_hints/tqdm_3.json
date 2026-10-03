@@ -1,0 +1,32 @@
+{
+  "case": "tqdm_3",
+  "query": "bool",
+  "source": "buggy candidate only",
+  "hits": [
+    {
+      "path": "tqdm/tests/tests_tqdm.py",
+      "line": 1709,
+      "text": "\n@with_setup(pretest, posttest)\ndef test_bool():\n    \"\"\"Test boolean cast\"\"\"\n"
+    },
+    {
+      "path": "tqdm/tests/tests_main.py",
+      "line": 110,
+      "text": "        raise TqdmKeyError('bad_arg_u_ment')\n\n    sys.argv = ['', '-ascii', '-unit_scale', 'invalid_bool_value']\n    try:\n        main(fp=NULL)"
+    },
+    {
+      "path": "tqdm/_tqdm.py",
+      "line": 754,
+      "text": "            If your progress is erratic with both fast and slow iterations\n            (network, skipping items, etc) you should set miniters=1.\n        ascii  : bool or str, optional\n            If unspecified or False, use unicode (smooth blocks) to fill\n            the meter. The fallback is to use ASCII characters \" 123456789#\"."
+    },
+    {
+      "path": "tqdm/_tqdm.py",
+      "line": 801,
+      "text": "            [default: 1000], ignored unless `unit_scale` is True.\n        write_bytes  : bool, optional\n            If (default: None) and `file` is unspecified,\n            bytes will be written in Python 2. If `True` will also write"
+    },
+    {
+      "path": "tqdm/_tqdm.py",
+      "line": 366,
+      "text": "        if prefix:\n            # old prefix setup work around\n            bool_prefix_colon_already = (prefix[-2:] == \": \")\n            l_bar = prefix if bool_prefix_colon_already else prefix + \": \"\n        else:"
+    }
+  ]
+}

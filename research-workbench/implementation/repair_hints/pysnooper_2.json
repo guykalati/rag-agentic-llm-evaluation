@@ -1,0 +1,17 @@
+{
+  "case": "pysnooper_2",
+  "query": "custom_repr",
+  "source": "buggy candidate only",
+  "hits": [
+    {
+      "path": "tests/test_pysnooper.py",
+      "line": 1133,
+      "text": "\n\ndef test_custom_repr():\n    string_io = io.StringIO()\n"
+    },
+    {
+      "path": "tests/test_pysnooper.py",
+      "line": 1175,
+      "text": "    )\n\ndef test_custom_repr_single():\n    string_io = io.StringIO()\n"
+    }
+  ]
+}

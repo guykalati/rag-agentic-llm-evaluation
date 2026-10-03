@@ -1,0 +1,7 @@
+# Experiment agent instructions
+
+Goal: lower `val_bpb` on the frozen TinyStories byte-prediction task under the same 300-second RTX 3090 training budget. Read `prepare.py`, `data_manifest.json`, the baseline result, and prior development ledger before proposing a change. State one testable hypothesis, then edit only `train.py`. The fixed data split, validation scorer, run time, and metric are not adjustable. Keep the candidate diff and its source hash; preserve failed attempts. Never inspect or infer a sealed test set, change `prepare.py`, fabricate a metric, or search outside the candidate and explicitly supplied development history.
+
+For each run, submit the candidate to the restricted runner, inspect the independent execution result, record it in the ledger, and retain a patch only if the frozen validation metric improves. Treat a single improvement as a candidate until repeated on agreed seeds. Do not launch more than the three-run first-batch ceiling, including the unchanged baseline. Stop if the evaluator, isolation, data provenance, or budget checks fail. The human-authored [first-run protocol](../../AUTORESEARCH_FIRST_RUN_PROTOCOL_2026-09-29.md) gives the dataset, resource cap, and interpretation limits.
+
+The project-specific research question is whether development-history retrieval improves the agent's next choice. A memory-on/off comparison needs the same candidate budget and evaluation task for both arms, with the index limited to past development runs. Do not claim that it works until measured.

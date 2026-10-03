@@ -1,0 +1,162 @@
+{
+  "final": "",
+  "tokens": 24421,
+  "events": [
+    {
+      "tool": "list_files",
+      "arguments": {},
+      "result": {
+        "files": [
+          "README.md",
+          "requirements.txt",
+          "setup.py",
+          "misc/generate_authors.py",
+          "pysnooper/__init__.py",
+          "pysnooper/pycompat.py",
+          "pysnooper/tracer.py",
+          "pysnooper/utils.py",
+          "pysnooper/variables.py",
+          "tests/__init__.py",
+          "tests/test_chinese.py",
+          "tests/test_pysnooper.py",
+          "tests/utils.py",
+          "tests/mini_toolbox/__init__.py",
+          "tests/mini_toolbox/contextlib.py",
+          "tests/mini_toolbox/pathlib.py",
+          "tests/samples/__init__.py",
+          "tests/samples/exception.py",
+          "tests/samples/indentation.py",
+          "tests/samples/recursion.py",
+          "tests/test_utils/__init__.py",
+          "tests/test_utils/test_ensure_tuple.py"
+        ]
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 50,
+        "path": "tests/test_pysnooper.py",
+        "start_line": 1175
+      },
+      "result": {
+        "path": "tests/test_pysnooper.py",
+        "start_line": 1175,
+        "sha256": "b91624d722081df50a81436226659f1e30e216c982344712488cb0642b179e2d",
+        "text": "    )\n\ndef test_custom_repr_single():\n    string_io = io.StringIO()\n\n    @pysnooper.snoop(string_io, custom_repr=(list, lambda l: 'foofoo!'))\n    def sum_to_x(x):\n        l = list(range(x))\n        return 7\n\n    result = sum_to_x(10000)\n\n    output = string_io.getvalue()\n    assert_output(\n        output,\n        (\n            VariableEntry('x', '10000'),\n            CallEntry(),\n            LineEntry(),\n            VariableEntry('l', 'foofoo!'),\n            LineEntry(),\n            ReturnEntry(),\n            ReturnValueEntry('7'),\n        )\n    )\n\n\ndef test_disable():\n    string_io = io.StringIO()\n\n    def my_function(foo):\n        x = 7\n        y = 8\n        return x + y\n\n    with mini_toolbox.TempValueSetter((pysnooper.tracer, 'DISABLED'), True):\n        with pysnooper.snoop(string_io):\n            result = my_function('baba')\n    output = string_io.getvalue()\n    assert not output"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 50,
+        "path": "pysnooper/__init__.py",
+        "start_line": 1
+      },
+      "result": {
+        "path": "pysnooper/__init__.py",
+        "start_line": 1,
+        "sha256": "bfcbb0b36ef9e0f8eabe3bec371a54b176f46cd226501ed8bff4522b4255ee5e",
+        "text": "# Copyright 2019 Ram Rachum and collaborators.\n# This program is distributed under the MIT license.\n'''\nPySnooper - Never use print for debugging again\n\nUsage:\n\n    import pysnooper\n\n    @pysnooper.snoop()\n    def your_function(x):\n        ...\n\nA log will be written to stderr showing the lines executed and variables\nchanged in the decorated function.\n\nFor more information, see https://github.com/cool-RR/PySnooper\n'''\n\nfrom .tracer import Tracer as snoop\nfrom .variables import Attrs, Exploding, Indices, Keys\nimport collections\n\n__VersionInfo = collections.namedtuple('VersionInfo',\n                                       ('major', 'minor', 'micro'))\n\n__version__ = '0.0.38'\n__version_info__ = __VersionInfo(*(map(int, __version__.split('.'))))\n\ndel collections, __VersionInfo # Avoid polluting the namespace"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 50,
+        "path": "pysnooper/tracer.py",
+        "start_line": 1
+      },
+      "result": {
+        "path": "pysnooper/tracer.py",
+        "start_line": 1,
+        "sha256": "a3659fb6d0f1edfd71d11e573c8af2b90c3ff8dd4766849bbb1c95706c50f3e4",
+        "text": "# Copyright 2019 Ram Rachum and collaborators.\n# This program is distributed under the MIT license.\n\nimport functools\nimport inspect\nimport opcode\nimport sys\nimport re\nimport collections\nimport datetime as datetime_module\nimport itertools\nimport threading\nimport traceback\n\nfrom .variables import CommonVariable, Exploding, BaseVariable\nfrom . import utils, pycompat\n\n\nipython_filename_pattern = re.compile('^<ipython-input-([0-9]+)-.*>$')\n\n\ndef get_local_reprs(frame, watch=()):\n    code = frame.f_code\n    vars_order = code.co_varnames + code.co_cellvars + code.co_freevars + tuple(frame.f_locals.keys())\n\n    result_items = [(key, utils.get_shortish_repr(value)) for key, value in frame.f_locals.items()]\n    result_items.sort(key=lambda key_value: vars_order.index(key_value[0]))\n    result = collections.OrderedDict(result_items)\n\n    for variable in watch:\n        result.update(sorted(variable.items(frame)))\n    return result\n\n\nclass UnavailableSource(object):\n    def __getitem__(self, i):\n        return u'SOURCE IS UNAVAILABLE'\n\n\nsource_cache = {}\n\n\ndef get_source_from_frame(frame):\n    globs = frame.f_globals or {}\n    module_name = globs.get('__name__')\n    file_name = frame.f_code.co_filename\n    cache_key = (module_name, file_name)\n    try:\n        return source_cache[cache_key]\n    except KeyError:"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 100,
+        "path": "pysnooper/tracer.py",
+        "start_line": 100
+      },
+      "result": {
+        "path": "pysnooper/tracer.py",
+        "start_line": 100,
+        "sha256": "a3659fb6d0f1edfd71d11e573c8af2b90c3ff8dd4766849bbb1c95706c50f3e4",
+        "text": "\n\ndef get_write_function(output, overwrite):\n    is_path = isinstance(output, (pycompat.PathLike, str))\n    if overwrite and not is_path:\n        raise Exception('`overwrite=True` can only be used when writing '\n                        'content to file.')\n    if output is None:\n        def write(s):\n            stderr = sys.stderr\n            try:\n                stderr.write(s)\n            except UnicodeEncodeError:\n                # God damn Python 2\n                stderr.write(utils.shitcode(s))\n    elif is_path:\n        return FileWriter(output, overwrite).write\n    elif callable(output):\n        write = output\n    else:\n        assert isinstance(output, utils.WritableStream)\n\n        def write(s):\n            output.write(s)\n    return write\n\n\nclass FileWriter(object):\n    def __init__(self, path, overwrite):\n        self.path = pycompat.text_type(path)\n        self.overwrite = overwrite\n\n    def write(self, s):\n        with open(self.path, 'w' if self.overwrite else 'a') as output_file:\n            output_file.write(s)\n        self.overwrite = False\n\n\nthread_global = threading.local()\n\n\nclass Tracer:\n    '''\n    Snoop on the function, writing everything it's doing to stderr.\n\n    This is useful for debugging.\n\n    When you decorate a function with `@pysnooper.snoop()`\n    or wrap a block of code in `with pysnooper.snoop():`, you'll get a log of\n    every line that ran in the function and a play-by-play of every local\n    variable that changed.\n\n    If stderr is not easily accessible for you, you can redirect the output to\n    a file::\n\n        @pysnooper.snoop('/my/log/file.log')\n\n    See values of some expressions that aren't local variables::\n\n        @pysnooper.snoop(watch=('foo.bar', 'self.x[\"whatever\"]'))\n\n    Expand values to see all their attributes or items of lists/dictionaries:\n\n        @pysnooper.snoop(watch_explode=('foo', 'self'))\n\n    (see Advanced Usage in the README for more control)\n\n    Show snoop lines for functions that your function calls::\n\n        @pysnooper.snoop(depth=2)\n\n    Start all snoop lines with a prefix, to grep for them easily::\n\n        @pysnooper.snoop(prefix='ZZZ ')\n\n    On multi-threaded apps identify which thread are snooped in output::\n\n        @pysnooper.snoop(thread_info=True)\n\n    '''\n    def __init__(\n            self,\n            output=None,\n            watch=(),\n            watch_explode=(),\n            depth=1,\n            prefix='',\n            overwrite=False,\n            thread_info=False,\n    ):\n        self._write = get_write_function(output, overwrite)\n\n        self.watch = [\n            v if isinstance(v, BaseVariable) else CommonVariable(v)\n            for v in utils.ensure_tuple(watch)\n         ] + [\n             v if isinstance(v, BaseVariable) else Exploding(v)\n             for v in utils.ensure_tuple(watch_explode)\n        ]\n        self.frame_to_local_reprs = {}"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 100,
+        "path": "pysnooper/tracer.py",
+        "start_line": 150
+      },
+      "result": {
+        "path": "pysnooper/tracer.py",
+        "start_line": 150,
+        "sha256": "a3659fb6d0f1edfd71d11e573c8af2b90c3ff8dd4766849bbb1c95706c50f3e4",
+        "text": "    variable that changed.\n\n    If stderr is not easily accessible for you, you can redirect the output to\n    a file::\n\n        @pysnooper.snoop('/my/log/file.log')\n\n    See values of some expressions that aren't local variables::\n\n        @pysnooper.snoop(watch=('foo.bar', 'self.x[\"whatever\"]'))\n\n    Expand values to see all their attributes or items of lists/dictionaries:\n\n        @pysnooper.snoop(watch_explode=('foo', 'self'))\n\n    (see Advanced Usage in the README for more control)\n\n    Show snoop lines for functions that your function calls::\n\n        @pysnooper.snoop(depth=2)\n\n    Start all snoop lines with a prefix, to grep for them easily::\n\n        @pysnooper.snoop(prefix='ZZZ ')\n\n    On multi-threaded apps identify which thread are snooped in output::\n\n        @pysnooper.snoop(thread_info=True)\n\n    '''\n    def __init__(\n            self,\n            output=None,\n            watch=(),\n            watch_explode=(),\n            depth=1,\n            prefix='',\n            overwrite=False,\n            thread_info=False,\n    ):\n        self._write = get_write_function(output, overwrite)\n\n        self.watch = [\n            v if isinstance(v, BaseVariable) else CommonVariable(v)\n            for v in utils.ensure_tuple(watch)\n         ] + [\n             v if isinstance(v, BaseVariable) else Exploding(v)\n             for v in utils.ensure_tuple(watch_explode)\n        ]\n        self.frame_to_local_reprs = {}\n        self.depth = depth\n        self.prefix = prefix\n        self.thread_info = thread_info\n        self.thread_info_padding = 0\n        assert self.depth >= 1\n        self.target_codes = set()\n        self.target_frames = set()\n        self.thread_local = threading.local()\n\n    def __call__(self, function):\n        self.target_codes.add(function.__code__)\n\n        @functools.wraps(function)\n        def simple_wrapper(*args, **kwargs):\n            with self:\n                return function(*args, **kwargs)\n\n        @functools.wraps(function)\n        def generator_wrapper(*args, **kwargs):\n            gen = function(*args, **kwargs)\n            method, incoming = gen.send, None\n            while True:\n                with self:\n                    try:\n                        outgoing = method(incoming)\n                    except StopIteration:\n                        return\n                try:\n                    method, incoming = gen.send, (yield outgoing)\n                except Exception as e:\n                    method, incoming = gen.throw, e\n\n        if pycompat.iscoroutinefunction(function):\n            # return decorate(function, coroutine_wrapper)\n            raise NotImplementedError\n        elif inspect.isgeneratorfunction(function):\n            return generator_wrapper\n        else:\n            return simple_wrapper\n\n    def write(self, s):\n        s = u'{self.prefix}{s}\\n'.format(**locals())\n        self._write(s)\n\n    def __enter__(self):\n        calling_frame = inspect.currentframe().f_back\n        if not self._is_internal_frame(calling_frame):\n            calling_frame.f_trace = self.trace\n            self.target_frames.add(calling_frame)\n"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 50,
+        "path": "pysnooper/variables.py",
+        "start_line": 1
+      },
+      "result": {
+        "path": "pysnooper/variables.py",
+        "start_line": 1,
+        "sha256": "23c1dd6a665d947518c8adc69b7af979d6d5459488f595b6550186ab5c8da8d1",
+        "text": "import itertools\nimport abc\nfrom collections import Mapping, Sequence\nfrom copy import deepcopy\n\nfrom . import utils\nfrom . import pycompat\n\n\ndef needs_parentheses(source):\n    def code(s):\n        return compile(s, '<variable>', 'eval').co_code\n\n    return code('{}.x'.format(source)) != code('({}).x'.format(source))\n\n\nclass BaseVariable(pycompat.ABC):\n    def __init__(self, source, exclude=()):\n        self.source = source\n        self.exclude = utils.ensure_tuple(exclude)\n        self.code = compile(source, '<variable>', 'eval')\n        if needs_parentheses(source):\n            self.unambiguous_source = '({})'.format(source)\n        else:\n            self.unambiguous_source = source\n\n    def items(self, frame):\n        try:\n            main_value = eval(self.code, frame.f_globals or {}, frame.f_locals)\n        except Exception:\n            return ()\n        return self._items(main_value)\n\n    @abc.abstractmethod\n    def _items(self, key):\n        raise NotImplementedError\n\n\nclass CommonVariable(BaseVariable):\n    def _items(self, main_value):\n        result = [(self.source, utils.get_shortish_repr(main_value))]\n        for key in self._safe_keys(main_value):\n            try:\n                if key in self.exclude:\n                    continue\n                value = self._get_value(main_value, key)\n            except Exception:\n                continue\n            result.append((\n                '{}{}'.format(self.unambiguous_source, self._format_key(key)),"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 50,
+        "path": "pysnooper/variables.py",
+        "start_line": 100
+      },
+      "result": {
+        "path": "pysnooper/variables.py",
+        "start_line": 100,
+        "sha256": "23c1dd6a665d947518c8adc69b7af979d6d5459488f595b6550186ab5c8da8d1",
+        "text": "    def _keys(self, main_value):\n        return range(len(main_value))[self._slice]\n\n    def __getitem__(self, item):\n        assert isinstance(item, slice)\n        result = deepcopy(self)\n        result._slice = item\n        return result\n\n\nclass Exploding(BaseVariable):\n    def _items(self, main_value):\n        if isinstance(main_value, Mapping):\n            cls = Keys\n        elif isinstance(main_value, Sequence):\n            cls = Indices\n        else:\n            cls = Attrs\n\n        return cls(self.source, self.exclude)._items(main_value)"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "line_count": 50,
+        "path": "pysnooper/variables.py",
+        "start_line": 150
+      },
+      "result": {
+        "path": "pysnooper/variables.py",
+        "start_line": 150,
+        "sha256": "23c1dd6a665d947518c8adc69b7af979d6d5459488f595b6550186ab5c8da8d1",
+        "text": ""
+      }
+    }
+  ],
+  "status": "budget_exhausted",
+  "final_evaluation": {
+    "target": {
+      "exit_code": "1",
+      "job_id": "21729046",
+      "slurm_state": "COMPLETED"
+    },
+    "regression": {
+      "exit_code": "1",
+      "job_id": "21729063",
+      "slurm_state": "COMPLETED"
+    },
+    "resolved": false
+  }
+}

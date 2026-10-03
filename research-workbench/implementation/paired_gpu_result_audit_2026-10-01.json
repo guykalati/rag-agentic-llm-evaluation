@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "cells": [
+    {
+      "id": "pair1_no_history",
+      "status": "failed",
+      "val_bpb": null,
+      "preempted_allocation_seconds": 15,
+      "restart_allocation_seconds": 1
+    },
+    {
+      "id": "pair1_retrieval",
+      "status": "failed",
+      "val_bpb": null,
+      "preempted_allocation_seconds": 95,
+      "restart_allocation_seconds": 1
+    },
+    {
+      "id": "pair2_retrieval",
+      "status": "success",
+      "val_bpb": 0.9313911089494967,
+      "improvement_from_incumbent": -0.0192028565717256,
+      "steps": 24123,
+      "parameter_count": 10844160,
+      "checkpoint_sha256": "53e46ee22f2227f57fa26c3c3f62a821b353a6a215a73dfd7f48532d24eb6dbf"
+    },
+    {
+      "id": "pair2_no_history",
+      "status": "success",
+      "val_bpb": 0.9147822848395301,
+      "improvement_from_incumbent": -0.0025940324617589328,
+      "steps": 32237,
+      "parameter_count": 8476416,
+      "checkpoint_sha256": "10820cf4baf19572d9a60f2e942e4db6c46d83820e5123230258e348e49bd1e0"
+    }
+  ],
+  "successful": 2,
+  "failed": 2,
+  "incumbent_val_bpb": 0.9121882523777711,
+  "incumbent_retained": true,
+  "paired_retrieval_benefit": "Inconclusive: first pair preempted; both second-pair candidates worse than incumbent",
+  "allocated_gpu_seconds_all_attempts": 2558,
+  "original_gpu_minute_ceiling": 88,
+  "remaining_candidate_runs": 0,
+  "limits": "Full Slurm attempt history retained. Fixed-time configurations differ in throughput; duplicate source within each arm; no statistical retrieval superiority. Independent validation reload executed remotely, local audit verifies artifacts/hashes/metric agreement."
+}

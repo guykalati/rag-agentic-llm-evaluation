@@ -1,0 +1,25 @@
+F
+=================================== FAILURES ===================================
+___________________________ test_custom_repr_single ____________________________
+
+    def test_custom_repr_single():
+        string_io = io.StringIO()
+    
+>       @pysnooper.snoop(string_io, custom_repr=(list, lambda l: 'foofoo!'))
+E       TypeError: __init__() got an unexpected keyword argument 'custom_repr'
+
+tests/test_pysnooper.py:1180: TypeError
+=============================== warnings summary ===============================
+../env/lib/python3.8/site-packages/_pytest/config/__init__.py:1183
+  /env/lib/python3.8/site-packages/_pytest/config/__init__.py:1183: PytestDeprecationWarning: The --strict option is deprecated, use --strict-markers instead.
+    self.issue_config_time_warning(
+
+pysnooper/variables.py:3
+pysnooper/variables.py:3
+  /work/pysnooper/variables.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+    from collections import Mapping, Sequence
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_pysnooper.py::test_custom_repr_single - TypeError: __init__...
+1 failed, 3 warnings in 0.20s

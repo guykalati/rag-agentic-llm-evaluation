@@ -1,0 +1,17 @@
+{
+  "case": "pysnooper_3",
+  "query": "output_path",
+  "source": "buggy candidate only",
+  "hits": [
+    {
+      "path": "tests/test_pysnooper.py",
+      "line": 151,
+      "text": "\n    baz = Baz()\n"
+    },
+    {
+      "path": "pysnooper/pysnooper.py",
+      "line": 24,
+      "text": "    elif isinstance(output, (pycompat.PathLike, str)):\n        def write(s):\n            with open(output_path, 'a') as output_file:\n                output_file.write(s)\n    else:"
+    }
+  ]
+}

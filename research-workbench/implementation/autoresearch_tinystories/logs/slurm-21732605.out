@@ -1,0 +1,10 @@
+------------------------------------
+Tue 29 Sep 2026 17:51:57 IDT
+SLURM_JOBID:		21732605
+SLURM_JOB_NODELIST:	ise-3090-04
+SLURM_SCRATCH_DIR:	
+Allocated Resouces:	cpu - 2 / mem - 8192 MB / gpu - 1
+SLURM_GPU_INDEX:	0
+Running as guykalat from yshahar account with normal QOS
+------------------------------------
+restricted GPU and hidden home passed

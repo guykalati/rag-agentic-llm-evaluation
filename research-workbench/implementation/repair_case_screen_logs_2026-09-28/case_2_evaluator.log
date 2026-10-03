@@ -1,0 +1,8 @@
+.
+=============================== warnings summary ===============================
+../env/lib/python3.8/site-packages/_pytest/config/__init__.py:1183
+  /env/lib/python3.8/site-packages/_pytest/config/__init__.py:1183: PytestDeprecationWarning: The --strict option is deprecated, use --strict-markers instead.
+    self.issue_config_time_warning(
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+1 passed, 1 warning in 0.14s

@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "metric_name": "val_bpb",
+  "metric_value": 1.319296518133451,
+  "val_bpb": 1.319296518133451,
+  "validation_bytes_scored": 2097152,
+  "training_seconds": 300.00394928175956,
+  "train_loss_nats_last_logged": 0.9170000553131104,
+  "steps": 25188,
+  "parameter_count": 1711104,
+  "gpu_name": "NVIDIA GeForce RTX 3090",
+  "gpu_peak_bytes": 485198848,
+  "torch_version": "2.5.1+cu124",
+  "prepare_sha256": "9e276b61d9e332a457a88e36c39b66f2950cdda5b2769a76b386a1008188db3a",
+  "train_sha256": "8988aa34384fc685a4182b168933a70f0567f0bd1863717f09a807ebe2f56f5e",
+  "data_manifest_sha256": "f2ed3ba0d7f173a105650a46a1f8a04b80f3ad3748c8798950f0b0b667e10ac9",
+  "checkpoint_sha256": "f26088d02e999452e98025b2a92959e185f623419203ebcc3fc02ce7359c6dc9"
+}

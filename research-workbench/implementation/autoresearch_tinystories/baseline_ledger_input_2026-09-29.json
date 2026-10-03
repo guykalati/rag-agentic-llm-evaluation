@@ -1,0 +1,7 @@
+{
+  "status": "success",
+  "training_seconds": 300.00455804914236,
+  "metric_value": 1.2032800208088748,
+  "hypothesis": "Unchanged two-layer byte Transformer baseline establishes the fixed-task validation score.",
+  "notes": "Slurm training job 21731991; independent verifier job 21732499 matched 1.2032800208088748 val_bpb over 2097152 bytes; checkpoint SHA256 1a6c57322012ce8dd435527f60ce078d668e115cc12a8e6e96fe36ba53a05db6. Earlier job 21731969 failed after training due a CUDA device-name validation check and counts against the first-batch GPU budget."
+}

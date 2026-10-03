@@ -1,0 +1,16 @@
+{
+  "status": "validated_proposal",
+  "model": "gemma4:12b-it-qat",
+  "model_digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+  "hypothesis": "Increasing the feed-forward width from 1536 to 1920 while maintaining the same number of layers and attention heads will improve the model's capacity to represent complex patterns, leading to a higher validation bits/byte score within the fixed 1200-second training window on an RTX3090.",
+  "source_sha256": "aa527ed18aa8337ea24dca3d4217e13295c502ff30b3b1c2b75d7864fc27362c",
+  "candidate_sha256": "42eec61d1e7db5306f828c13dcbc5c144bd4c1c2f0187b374c3172e00110997f",
+  "history_records": 0,
+  "retrieval_enabled": false,
+  "proposal_seed": 20261001,
+  "proposal_temperature": 0.3,
+  "elapsed_seconds": 47.310501875006594,
+  "prompt_tokens": 1592,
+  "generated_tokens": 157,
+  "development_memory_benefit": "unmeasured"
+}

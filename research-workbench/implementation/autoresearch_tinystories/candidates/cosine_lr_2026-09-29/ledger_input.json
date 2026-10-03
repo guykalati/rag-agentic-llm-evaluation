@@ -1,0 +1,8 @@
+{
+  "status": "success",
+  "training_seconds": 300.00394928175956,
+  "metric_value": 1.319296518133451,
+  "candidate_file": "candidate_cosine_1/train.py",
+  "hypothesis": "Cosine learning-rate decay to 10% of the baseline initial rate will lower final validation bits per byte under the same 300-second training window.",
+  "notes": "Slurm candidate job 21732611 completed under restricted Bubblewrap, including independent checkpoint verification of 1.319296518133451 val_bpb on the same 2097152 validation bytes. Worse than baseline 1.2032800208088748 by 0.1160164973245763; reject candidate."
+}

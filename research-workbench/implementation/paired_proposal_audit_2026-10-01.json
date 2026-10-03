@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "sampled_generation_requests": 4,
+  "valid_candidates": 4,
+  "invalid_sampled_proposals": 0,
+  "prior_infrastructure_failures": 8,
+  "prior_generation_requests": 0,
+  "original_generation_cap": 8,
+  "remaining_generation_cap_unused": 4,
+  "gpu_candidate_cap": 4,
+  "distinct_candidate_hashes_by_arm": {
+    "no_history": 1,
+    "retrieval": 1
+  },
+  "proposal_manifest_sha256": "9ffc091f19ee67a0d867568608cf0981477240a76ee527fb240b94cd5482d028",
+  "proposal_ledger_sha256": "9b403e5a439aa6bee0394589774b22f5906364ced89d682b27e6a7d6f1a0b1cd",
+  "limitation": "Two proposal seeds produced the same candidate source within each condition. Training replicates cannot establish independent architecture exploration or statistical retrieval superiority."
+}

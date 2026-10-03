@@ -1,0 +1,25 @@
+------------------------------------
+Tue 29 Sep 2026 17:32:38 IDT
+SLURM_JOBID:		21731956
+SLURM_JOB_NODELIST:	ise-cpu-intl-13
+SLURM_SCRATCH_DIR:	
+Allocated Resouces:	cpu - 2 / mem - 8192 MB / gpu - 
+SLURM_GPU_INDEX:	
+Running as guykalat from yshahar account with normal QOS
+------------------------------------
+{
+  "source": "karpathy/tinystories-gpt4-clean",
+  "revision": "0397e27157956705a0260709da3095bb9c43d6a7",
+  "license": "cdla-sharing-1.0",
+  "tokenizer": "UTF-8 bytes; vocabulary 256",
+  "split_rule": "SHA256(text) first 32 bits mod 16 == 0 gives validation",
+  "exact_text_duplicates_skipped": 0,
+  "source_rows_scanned": 177770,
+  "train_bytes": 134217966,
+  "val_bytes": 2097193,
+  "train_sha256": "c8c5a2c809af4d6412d41bf03e9f0383862b883d694d44a79d8ad33c8717aab8",
+  "val_sha256": "fbe28e40adbeba86d5cb78f17edeac859bf858d1cc99bbe1a6b69b1f9e008f71",
+  "context": 256,
+  "training_seconds": 300,
+  "validation_rule": "all nonoverlapping 256-byte windows with one-byte targets"
+}

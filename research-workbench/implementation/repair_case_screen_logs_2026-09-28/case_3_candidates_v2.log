@@ -1,0 +1,39 @@
+F
+=================================== FAILURES ===================================
+_______________________________ test_file_output _______________________________
+
+    def test_file_output():
+    
+        with temp_file_tools.create_temp_folder(prefix='pysnooper') as folder:
+            path = folder / 'foo.log'
+            @pysnooper.snoop(str(path))
+            def my_function(foo):
+                x = 7
+                y = 8
+                return y + x
+>           result = my_function('baba')
+
+tests/test_pysnooper.py:183: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/env/lib/python3.8/site-packages/decorator/__init__.py:247: in fun
+    return caller(func, *(extras + args), **kw)
+pysnooper/pysnooper.py:72: in decorate
+    return function(*args, **kwargs)
+tests/test_pysnooper.py:178: in my_function
+    @pysnooper.snoop(str(path))
+pysnooper/tracer.py:173: in trace
+    self.write('{indent}{newish_string}{name} = {value_repr}'.format(
+pysnooper/tracer.py:114: in write
+    self._write(s)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+s = "Starting var:.. foo = 'baba'\n"
+
+    def write(s):
+>       with open(output_path, 'a') as output_file:
+E       NameError: name 'output_path' is not defined
+
+pysnooper/pysnooper.py:26: NameError
+=========================== short test summary info ============================
+FAILED tests/test_pysnooper.py::test_file_output - NameError: name 'output_pa...
+1 failed in 0.17s

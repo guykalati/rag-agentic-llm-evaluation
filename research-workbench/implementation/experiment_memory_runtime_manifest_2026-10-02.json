@@ -1,0 +1,15 @@
+{
+  "records": 17,
+  "purpose": "Derived development-only history with measured throughput; no test/sealed data or new model run",
+  "original_pair_ledger_sha256": "fc11df4da77616437115f91d78e4bb3e1b15e3dc189f3d44dae0f028c08ac9d6",
+  "derived_runtime_ledger_sha256": "e03c3d22e550cf264fad719b9dc0dd1d062eaae20a488d66cff3dc22be30e029",
+  "index_sha256": "a212b1360d1785d7a2cf1bd01cdec152fe604f9326a58765cad2d28b6a2c449f",
+  "source_ledger_sha256": {
+    "project-first-scan/implementation/autoresearch_tinystories/results_2026-09-29.jsonl": "e662b805d76f1f2134c37affff1441692befbf198c4d37d62a2d47ffd162405e",
+    "project-first-scan/implementation/autoresearch_longrun_20260929/results.jsonl": "e6b026c7273bccb705642485b628614ba0ce6421e5a5a7df54c29a432fd745be",
+    "project-first-scan/implementation/autoresearch_agent_pilot_20260930/results.jsonl": "1a7c4b0d8601b6073a59288745980a9ad7c27125230a72c3125eab3bd0a36663",
+    "project-first-scan/implementation/data/experiment_memory_20261002/paired_runtime_history.jsonl": "e03c3d22e550cf264fad719b9dc0dd1d062eaae20a488d66cff3dc22be30e029"
+  },
+  "retrieval_benefit": "unmeasured",
+  "old_ledgers_unchanged": true
+}

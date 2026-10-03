@@ -1,0 +1,30 @@
+{
+  "seeds": [
+    20261001,
+    20261002
+  ],
+  "temperature": 0.3,
+  "max_attempts_per_arm": 2,
+  "max_total_attempts": 8,
+  "max_gpu_candidates": 4,
+  "model": "gemma4:12b-it-qat",
+  "model_digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+  "hashes": {
+    "incumbent.py": "aa527ed18aa8337ea24dca3d4217e13295c502ff30b3b1c2b75d7864fc27362c",
+    "experiment_memory.py": "6264d5fe4ce6844e17d07a456595439f76c29ea0b04c0ba1e9f72cc668196e87",
+    "paired_proposals.py": "df7248ad12f319b2c73233e88a8d8064e8697c7931fb1b59b89fbd226a51d115",
+    "memory.sqlite": "c408c7b997bc08cb565df17f26da89faff3658b02d274b9d0f7367e4643bd88f",
+    "experiment_proposer.py": "6e08b45fef9d5330322d813525b60e4dab59d61d603f3cce90c3700b7b3ee7db"
+  },
+  "training_seed": 20260929,
+  "training_seconds": 1200,
+  "max_allocated_gpu_minutes": 88,
+  "max_concurrency": 2,
+  "feedback": "No new execution feedback in proposal stage; no sharing new arm results",
+  "recovery": {
+    "prior_campaign": "autoresearch_paired_20261001",
+    "prior_generation_requests": 0,
+    "prior_gpu_runs": 0,
+    "reason": "All prior failures occurred at GET /api/tags before prompt construction; no generation request or proposal was made. Original generation/GPU caps remain unchanged. Prior failure ledger preserved."
+  }
+}

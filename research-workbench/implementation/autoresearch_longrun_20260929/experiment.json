@@ -1,0 +1,10 @@
+{
+  "metric": "val_bpb",
+  "direction": "min",
+  "max_runs": 9,
+  "max_training_seconds_per_run": 1210.0,
+  "prepare_file": "prepare.py",
+  "prepare_sha256": "5bc36d8887eca3cd99c92979d0ec6104a3dc6b201cd5258cd845de19292a5c6b",
+  "data_manifest_file": "data/data_manifest.json",
+  "data_manifest_sha256": "2b09b99c0ce2d13cc86fdca057fba630d309081050af20d782ba879d16619d84"
+}

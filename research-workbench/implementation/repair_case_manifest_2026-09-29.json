@@ -1,0 +1,32 @@
+{
+  "source": "pinned public BugsInPy candidate trees with fixed-revision visible test trees",
+  "cases": {
+    "pysnooper_2": {
+      "buggy_commit": "e21a31162f4c54be693d8ca8260e42393b39abd3",
+      "runtime": "3.8.1",
+      "target": "tests/test_pysnooper.py::test_custom_repr_single",
+      "regression": "tests/test_pysnooper.py",
+      "candidate_sha256": "542a591c206022d5f7df5dc4ec42b4cfc1fbc36ec07ddd537b2e5305f583cf12",
+      "task_sha256": "705cd650d73e7d9bcb9ce0379abcffb0a4f8665f70059e0d32242a43f94e1be3",
+      "hint_sha256": "ee38b6a511633f43568b34ffa67f5814d5c3a92313c5ce9d8e53949e8479f8ff"
+    },
+    "pysnooper_3": {
+      "buggy_commit": "6e3d797be3fa0a746fb5b1b7c7fea78eb926c208",
+      "runtime": "3.8.1",
+      "target": "tests/test_pysnooper.py::test_file_output",
+      "regression": "tests/test_pysnooper.py",
+      "candidate_sha256": "ed987c15a72b61f9feebef1c847a0db04082353e914a4f4f346e66383f9c495d",
+      "task_sha256": "6aec49f4f4f4bd96bc8235c26e7727a698aee7a4fb80c5c3650ea26a52a70c84",
+      "hint_sha256": "13be69dc452a5364560172a6e079699e5f1d88ef49aa9d83633e6cfd6f6dc085"
+    },
+    "tqdm_3": {
+      "buggy_commit": "c2599e3cd6087429f48bae34347ec5d2473c8392",
+      "runtime": "3.8.1 modified; BugsInPy specifies 3.6.9",
+      "target": "tqdm/tests/tests_tqdm.py::test_bool",
+      "regression": "tqdm/tests/tests_tqdm.py",
+      "candidate_sha256": "7f9f97183eae5d82b4a62845a96c392369e16a847d42414edeb3712655619f90",
+      "task_sha256": "4bf5a2c51e9f88b8a33adb70d0d0fd93cea5760b79366e971d561ac897c2e6c8",
+      "hint_sha256": "a52866454afa5c06a195a21503cf3b752fe82e2e87f10c2a3e7c83845d068988"
+    }
+  }
+}

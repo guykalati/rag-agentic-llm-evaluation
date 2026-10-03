@@ -1,0 +1,2 @@
+case	stage	test	exit_code	elapsed_seconds
+tqdm_3	target	tqdm/tests/tests_tqdm.py::test_bool	1	2

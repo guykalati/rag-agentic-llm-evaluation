@@ -1,0 +1,62 @@
+{
+  "training_seconds": 1200,
+  "slurm_minutes_per_cell": 22,
+  "max_runs": 4,
+  "cells": [
+    {
+      "id": "pair1_no_history",
+      "pair": 1,
+      "arm": "no_history",
+      "seed": 20260929,
+      "proposal_seed": 20261001,
+      "proposal_id": "pair1_no_history_attempt1",
+      "candidate_file": "cells/pair1_no_history/train.py",
+      "train_sha256": "42eec61d1e7db5306f828c13dcbc5c144bd4c1c2f0187b374c3172e00110997f"
+    },
+    {
+      "id": "pair1_retrieval",
+      "pair": 1,
+      "arm": "retrieval",
+      "seed": 20260929,
+      "proposal_seed": 20261001,
+      "proposal_id": "pair1_retrieval_attempt1",
+      "candidate_file": "cells/pair1_retrieval/train.py",
+      "train_sha256": "290f846ad79f1f1bd8045cf3eabc9545a1fe2e6d279c02a0c9e01c396ec0a61a"
+    },
+    {
+      "id": "pair2_retrieval",
+      "pair": 2,
+      "arm": "retrieval",
+      "seed": 20260929,
+      "proposal_seed": 20261002,
+      "proposal_id": "pair2_retrieval_attempt1",
+      "candidate_file": "cells/pair2_retrieval/train.py",
+      "train_sha256": "290f846ad79f1f1bd8045cf3eabc9545a1fe2e6d279c02a0c9e01c396ec0a61a"
+    },
+    {
+      "id": "pair2_no_history",
+      "pair": 2,
+      "arm": "no_history",
+      "seed": 20260929,
+      "proposal_seed": 20261002,
+      "proposal_id": "pair2_no_history_attempt1",
+      "candidate_file": "cells/pair2_no_history/train.py",
+      "train_sha256": "42eec61d1e7db5306f828c13dcbc5c144bd4c1c2f0187b374c3172e00110997f"
+    }
+  ],
+  "data_manifest_sha256": "2b09b99c0ce2d13cc86fdca057fba630d309081050af20d782ba879d16619d84",
+  "prepare_sha256": "5bc36d8887eca3cd99c92979d0ec6104a3dc6b201cd5258cd845de19292a5c6b",
+  "fixed_data": {
+    "train_sha256": "c8c5a2c809af4d6412d41bf03e9f0383862b883d694d44a79d8ad33c8717aab8",
+    "val_sha256": "fbe28e40adbeba86d5cb78f17edeac859bf858d1cc99bbe1a6b69b1f9e008f71"
+  },
+  "source_sha256": {
+    "prepare.py": "5bc36d8887eca3cd99c92979d0ec6104a3dc6b201cd5258cd845de19292a5c6b",
+    "verify.py": "e17b250d5428445d03bac9583c4012cd590de17d142b8f786513704c5288d942",
+    "test_contract.py": "6dbd33782076c46b072326c2ed7b7a8783625490674684da1d8072b7c865d8e0",
+    "run_paired.sbatch": "f88f5528a0bc320f876d3d1fb382d8f6d66c31f5dc8c959bba994d158cfac3e8"
+  },
+  "proposal_manifest_sha256": "9ffc091f19ee67a0d867568608cf0981477240a76ee527fb240b94cd5482d028",
+  "proposal_ledger_sha256": "9b403e5a439aa6bee0394589774b22f5906364ced89d682b27e6a7d6f1a0b1cd",
+  "incumbent_val_bpb": 0.9121882523777711
+}

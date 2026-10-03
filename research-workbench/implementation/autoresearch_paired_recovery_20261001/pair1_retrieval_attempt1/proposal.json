@@ -1,0 +1,16 @@
+{
+  "status": "validated_proposal",
+  "model": "gemma4:12b-it-qat",
+  "model_digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+  "hypothesis": "Increasing the number of encoder layers from 4 to 6 will improve validation bits per byte by providing deeper representational capacity for the fixed 1200-second training budget, assuming the increased depth does not significantly degrade the learning rate's ability to converge.",
+  "source_sha256": "aa527ed18aa8337ea24dca3d4217e13295c502ff30b3b1c2b75d7864fc27362c",
+  "candidate_sha256": "290f846ad79f1f1bd8045cf3eabc9545a1fe2e6d279c02a0c9e01c396ec0a61a",
+  "history_records": 11,
+  "retrieval_enabled": true,
+  "proposal_seed": 20261001,
+  "proposal_temperature": 0.3,
+  "elapsed_seconds": 77.75495645801129,
+  "prompt_tokens": 4234,
+  "generated_tokens": 136,
+  "development_memory_benefit": "unmeasured"
+}
