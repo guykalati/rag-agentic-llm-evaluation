@@ -1,0 +1,26 @@
+{
+  "model": "gemma4:12b-it-qat",
+  "model_digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+  "temperature": 0.3,
+  "seeds": [
+    20261003
+  ],
+  "max_attempts_per_arm": 2,
+  "max_generation_calls": 4,
+  "max_gpu_runs": 2,
+  "gpu_minutes_per_run": 22,
+  "max_gpu_minutes": 44,
+  "training_seconds": 1200,
+  "memory_records": 17,
+  "scope": "One matched development pair, runtime-feedback preparation, no held-out scores, no other-arm feedback, no retries after infrastructure/scheduler failure. All historical ledgers preserved.",
+  "hashes": {
+    "experiment_proposer.py": "d913f99666fc4738c8360f47c7dfdb3e3d288d44244986bda3a66e7de74a148f",
+    "experiment_memory.py": "6264d5fe4ce6844e17d07a456595439f76c29ea0b04c0ba1e9f72cc668196e87",
+    "incumbent.py": "aa527ed18aa8337ea24dca3d4217e13295c502ff30b3b1c2b75d7864fc27362c",
+    "memory.sqlite": "a212b1360d1785d7a2cf1bd01cdec152fe604f9326a58765cad2d28b6a2c449f",
+    "runtime_paired_proposals.py": "1bafed8e5488f19d02c62f79274a71d29a00848b8fd854c482c06524668c4799",
+    "prepare.py": "5bc36d8887eca3cd99c92979d0ec6104a3dc6b201cd5258cd845de19292a5c6b",
+    "verify.py": "e17b250d5428445d03bac9583c4012cd590de17d142b8f786513704c5288d942",
+    "test_contract.py": "6dbd33782076c46b072326c2ed7b7a8783625490674684da1d8072b7c865d8e0"
+  }
+}

@@ -1,5 +1,5 @@
 # Current status — 3 October 2026
 
-Repair feasibility solved one of two related PySnooper development cases in both hint arms. The fixed-time TinyStories Transformer loop has independently verified results. Larger-model mean bpb improved in the nine-cell batch; proposed pilot and paired-history candidates were worse than the incumbent. One paired run was preempted. Memory benefit is unproven. Runtime-feedback preparation has 17 development records and passed boundary/count checks. Old experiment budgets remain exhausted.
+Earlier proposed TinyStories candidates did not beat the incumbent; memory benefit remains unproven. A fresh one-pair runtime-feedback protocol is frozen: memory on/off, up to four local calls and two 20-minute candidate training runs (44 allocated GPU-minute ceiling). The repaired 17-record development index and parameter-accounting prompt passed three existing boundary/isolation checks. New proposal generation waits for the separate article-model campaign; no new agent GPU training has begun.
 
-Cluster connection was restored via a shared SSH control connection. The latest check showed no active jobs. The HTML walkthrough explains the full history and proposed next steps.
+The HTML walkthrough records the earlier snapshot. Read the dated continuation reports for these subsequent runs. Historical pending statements are preserved.
