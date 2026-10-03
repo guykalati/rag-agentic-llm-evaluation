@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "old_records": 17,
+  "new_records": 18,
+  "all_old_records_preserved": true,
+  "old_database_sha256_unchanged": "a212b1360d1785d7a2cf1bd01cdec152fe604f9326a58765cad2d28b6a2c449f",
+  "new_database_sha256": "2613a5afdd9e8153d745889663d67f644926ec9bfc88e412945b0236ad6da277",
+  "input_ledger_sha256": {
+    "/Users/gyklty/Documents/Job - LeetCode/project-first-scan/implementation/autoresearch_agent_pilot_20260930/results.jsonl": "1a7c4b0d8601b6073a59288745980a9ad7c27125230a72c3125eab3bd0a36663",
+    "/Users/gyklty/Documents/Job - LeetCode/project-first-scan/implementation/autoresearch_longrun_20260929/results.jsonl": "e6b026c7273bccb705642485b628614ba0ce6421e5a5a7df54c29a432fd745be",
+    "/Users/gyklty/Documents/Job - LeetCode/project-first-scan/implementation/autoresearch_tinystories/results_2026-09-29.jsonl": "e662b805d76f1f2134c37affff1441692befbf198c4d37d62a2d47ffd162405e",
+    "/Users/gyklty/Documents/Job - LeetCode/project-first-scan/implementation/data/experiment_memory_20261002/paired_runtime_history.jsonl": "e03c3d22e550cf264fad719b9dc0dd1d062eaae20a488d66cff3dc22be30e029",
+    "project-first-scan/implementation/data/experiment_memory_20261003/completed_feedback.jsonl": "9d6d0b3fce133c31e507b02c373f3f45ea4584f6ded2b930085d3113508ca6e9"
+  },
+  "latest_feedback": {
+    "run": 1,
+    "status": "success",
+    "metric_name": "val_bpb",
+    "metric_value": 0.9169007335424967,
+    "train_sha256": "09009f8379bc211c415bf72b867a9ef0ec908b40a135e6a4dd50ad7df15fd53e",
+    "training_seconds": 1200.0354769099504,
+    "hypothesis": "Eight attention heads at width384, four layers and feed-forward1536 may improve fixed-time val_bpb versus six heads.",
+    "failure_reason": "No score improvement: lower-is-better validation bpb is above the same-seed incumbent.",
+    "notes": "Verified 1200-second training, 34277 optimizer steps, 7295232 parameters. Independent checkpoint reload reproduced 0.9169007335424967; incumbent 0.9121882523777711 retained. One completed development candidate, not matched no-history/retrieval benefit or general architecture conclusion.",
+    "job_id": "22001602",
+    "decision": "retain_incumbent",
+    "result_audit_sha256": "3d79c82a28063477bb22e8f3ebe4793745ffd0cda820c815c75257a4a48bc539"
+  },
+  "default_17_record_reader_rejects_new_index": true,
+  "required_next_proposer_history_limit": 18,
+  "proposer_sha256": "1c10fb138b16c8c83c4f7c11ecc977478d71225c54ea3ffa21355b9c9f84b6b5",
+  "limits": "New bounded development snapshot only. No generation/training/evaluation. Old17-record index and frozen proposal ledgers preserved; no-history still reads nothing."
+}

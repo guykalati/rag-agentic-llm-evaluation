@@ -45,6 +45,9 @@ class HistoryBoundaryChecks(unittest.TestCase):
             self.assertEqual({r['run'] for r in read_snapshot(db)},set(range(17)))
             ledger.write_text(ledger.read_text()+json.dumps({**rows[-1],'run':17})+'\n');build_index([ledger],db)
             with self.assertRaises(ValueError):read_snapshot(db)
+            self.assertEqual(len(read_snapshot(db,limit=18)),18)
+            ledger.write_text(ledger.read_text()+json.dumps({**rows[-1],'run':18})+'\n');build_index([ledger],db)
+            with self.assertRaises(ValueError):read_snapshot(db,limit=18)
 
     def test_no_history_never_opens_index_and_freezes_sampling(self):
         import json,tempfile

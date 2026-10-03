@@ -126,15 +126,17 @@ def parameter_profile(source):
     return {**shape,'feed_forward':feed_forward,'layers':layers,'parameter_count':parameters,
             'scope':'Protected Model with256byte tokens,256positions and tied output embedding only; not a runtime prediction.'}
 
-def propose(source_path, database, output, *, retrieval=True, seed=None, temperature=0):
+def propose(source_path, database, output, *, retrieval=True, seed=None, temperature=0, history_limit=17):
     if not 0 <= temperature <= 1:
         raise ValueError("proposal temperature must be between0 and1")
+    if type(history_limit) is not int or not 1 <= history_limit <= 18:
+        raise ValueError("history limit must be an explicit integer between 1 and 18")
     output.mkdir(parents=True,exist_ok=False)
     with urllib.request.urlopen('http://127.0.0.1:11434/api/tags',timeout=10) as response:
         tags=json.load(response)
     assert any(m['name']==MODEL and m['digest']==DIGEST for m in tags['models']), 'local model changed'
     source=source_path.read_text()
-    history=read_snapshot(database,limit=17) if retrieval else []
+    history=read_snapshot(database,limit=history_limit) if retrieval else []
     schema={'type':'object','properties':{'hypothesis':{'type':'string'},'edits':{'type':'array','minItems':1,'maxItems':2,
         'items':{'type':'object','properties':{'old':{'type':'string'},'new':{'type':'string'}},'required':['old','new'],'additionalProperties':False}}},
         'required':['hypothesis','edits'],'additionalProperties':False}
@@ -164,7 +166,7 @@ def propose(source_path, database, output, *, retrieval=True, seed=None, tempera
     (output/'train.py').write_text(edited)
     result={'status':'validated_proposal','model':MODEL,'model_digest':DIGEST,'hypothesis':proposal['hypothesis'],
             'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'candidate_sha256':hashlib.sha256(edited.encode()).hexdigest(),
-            'history_records':len(history),'retrieval_enabled':retrieval,'proposal_seed':seed,'proposal_temperature':temperature,'elapsed_seconds':time.monotonic()-start,
+            'history_records':len(history),'history_record_cap':history_limit,'history_snapshot_sha256':hashlib.sha256(database.read_bytes()).hexdigest() if retrieval else None,'retrieval_enabled':retrieval,'proposal_seed':seed,'proposal_temperature':temperature,'elapsed_seconds':time.monotonic()-start,
             'prompt_tokens':raw.get('prompt_eval_count'),'generated_tokens':raw.get('eval_count'),
             'parameter_profile':parameter_profile(edited),'development_memory_benefit':'unmeasured'}
     (output/'proposal.json').write_text(json.dumps(result,indent=2)+'\n')
@@ -174,4 +176,5 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source',type=Path);parser.add_argument('database',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--no-history',action='store_true');parser.add_argument('--seed',type=int);parser.add_argument('--temperature',type=float,default=0)
-    a=parser.parse_args();propose(a.source,a.database,a.output,retrieval=not a.no_history,seed=a.seed,temperature=a.temperature)
+    parser.add_argument('--history-limit',type=int,default=17)
+    a=parser.parse_args();propose(a.source,a.database,a.output,retrieval=not a.no_history,seed=a.seed,temperature=a.temperature,history_limit=a.history_limit)
