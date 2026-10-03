@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "trace_sha256": "494263aaf77c79bc576c7d72baed5234b7f251c675dacefa6893eee770fb1710",
+  "tool_calls": 8,
+  "tools": [
+    "list_files",
+    "read_file",
+    "replace_text",
+    "run_test"
+  ],
+  "independent_evaluation": {
+    "target": {
+      "exit_code": "0",
+      "job_id": "21728916",
+      "slurm_state": "COMPLETED"
+    },
+    "regression": {
+      "exit_code": "0",
+      "job_id": "21728918",
+      "slurm_state": "COMPLETED"
+    },
+    "resolved": true
+  },
+  "limits": "Existing real recorded model-driven repair; this audit checks preserved evidence, not a new repair rerun. Gateway unit checks verify error handling separately."
+}

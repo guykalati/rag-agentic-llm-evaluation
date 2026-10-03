@@ -1,0 +1,77 @@
+{
+  "sources": [
+    {
+      "url": "https://docs.python.org/3.12/library/pathlib.html",
+      "html_sha256": "85fa64bd13ef47a0a837c1b1d3523db7312601def534c7d9783effd0845e333c",
+      "word_count": 7174,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/json.html",
+      "html_sha256": "1a5e4ba18342b32f5f174d129f9c226a21a9445a89384f13a3f33ec327c2b68f",
+      "word_count": 4084,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/subprocess.html",
+      "html_sha256": "48f3c7606979fcfc0b88c7efbe0540dec7744d02a109f455452a7a79b5ebde5b",
+      "word_count": 8921,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/unittest.html",
+      "html_sha256": "10a8aa7f2068056165764a8b0970e65f606387c2aef96892086fa7190387553d",
+      "word_count": 13363,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/venv.html",
+      "html_sha256": "f4d0bc6e57e29441a8f8462ce42e469d8e216d3f4d0b21a54ed228af8a2aadc8",
+      "word_count": 3895,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/logging.html",
+      "html_sha256": "97bd4695e33d0bd328dff45ea1217da4324dfa30db21cf14dc6e78fc0b7cb7b5",
+      "word_count": 9298,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/sqlite3.html",
+      "html_sha256": "be9ed9540ac845f15db3cc7844472fa2902ece239c3123b369069edbf76b5e67",
+      "word_count": 11966,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/shutil.html",
+      "html_sha256": "aea4039f341e8e915b04180fdbfcaa7326c2a7a73371cc8ac4490a5b3720b8b7",
+      "word_count": 4874,
+      "license": "Python Software Foundation documentation license; see https://docs.python.org/3.12/license.html"
+    }
+  ],
+  "chunks": 581,
+  "chunk_words": 140,
+  "stride_words": 110,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "embedding_license": "Apache-2.0",
+  "embedding_shape": [
+    581,
+    384
+  ],
+  "embedding_max_seq_length": 256,
+  "files_sha256": {
+    "venv.html": "f4d0bc6e57e29441a8f8462ce42e469d8e216d3f4d0b21a54ed228af8a2aadc8",
+    "json.html": "1a5e4ba18342b32f5f174d129f9c226a21a9445a89384f13a3f33ec327c2b68f",
+    "sqlite3.html": "be9ed9540ac845f15db3cc7844472fa2902ece239c3123b369069edbf76b5e67",
+    "unittest.html": "10a8aa7f2068056165764a8b0970e65f606387c2aef96892086fa7190387553d",
+    "shutil.html": "aea4039f341e8e915b04180fdbfcaa7326c2a7a73371cc8ac4490a5b3720b8b7",
+    "embeddings.npy": "9fca6239c8d7111c010187e113796e8a92af445f90f1c8a06cae7a6c3360da0e",
+    "pathlib.html": "85fa64bd13ef47a0a837c1b1d3523db7312601def534c7d9783effd0845e333c",
+    "chunks.json": "8b56116f88aa512b3d0a4677600577a8423be2e106473819a43d4edf6b7ca685",
+    "subprocess.html": "48f3c7606979fcfc0b88c7efbe0540dec7744d02a109f455452a7a79b5ebde5b",
+    "logging.html": "97bd4695e33d0bd328dff45ea1217da4324dfa30db21cf14dc6e78fc0b7cb7b5"
+  },
+  "source_sha256": "149264992d3267764d1f07cece4528552101d6089486c717141b6055c8c91565",
+  "index_build_seconds": 25.59637400000065
+}

@@ -1,3 +1,7 @@
+# CV evidence closure
+
+[Executable coding-agent and real RAG evaluation](cv-closure/README.md): pinned documentation corpus, BM25/dense/hybrid retrieval, local generated answers and actual RAGAS judging. Full benchmark is running; final scores are pending. Historical CV RAGAS numbers and subsecond end-to-end latency remain unverified.
+
 # Bounded repository repair and ML experiment agent
 
 This branch preserves the original course artifacts and adds the new personal research work through 3 October 2026.

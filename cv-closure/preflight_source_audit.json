@@ -1,0 +1,5 @@
+{
+  "initial_source_sha256": "0b2944768ea2ccaf142ed0f2d250a1b17b12e6021ca5372b9f30af0138a82482",
+  "fixed_source_sha256": "24f1862d13e6ba8a7db0ee2952bdba967d551fea6e917f0de8304d8bc68cac2b",
+  "source_policy": "Initial source reconstructed from the recorded patch and verified against initial result hash. Fixed source reconstructed before deadline/call-binding edits; fixed result originally hashed the file at campaign end, after those edits. Full campaign captures source at import time. Preserved preflight files are execution evidence, not final benchmark scores."
+}

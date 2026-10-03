@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "benchmark_id": "python312_repository_docs_12_2026-10-03",
+  "source_checked_date": "2026-10-03",
+  "frozen_before_model_evaluation": true,
+  "scope": "Twelve authored, source-grounded questions about Python 3.12 standard-library behavior relevant to repository work. This is a small explicit documentation benchmark, not a general coding or RAG benchmark.",
+  "reference_policy": "References were authored from official documentation before model answers or retrieval scores. Preserve this file and record its SHA-256 in every run. Do not modify references in response to model or strategy performance.",
+  "anchor_policy": "Anchor phrases identify evidence paragraphs after normalizing HTML markup and whitespace. They are not query text and must not be supplied to retrieval or generation. Freeze corpus chunking before resolving evidence chunk IDs. For the two-source question require evidence from both pages.",
+  "sources": [
+    "https://docs.python.org/3.12/library/pathlib.html",
+    "https://docs.python.org/3.12/library/json.html",
+    "https://docs.python.org/3.12/library/subprocess.html",
+    "https://docs.python.org/3.12/library/unittest.html",
+    "https://docs.python.org/3.12/library/venv.html",
+    "https://docs.python.org/3.12/library/logging.html",
+    "https://docs.python.org/3.12/library/sqlite3.html",
+    "https://docs.python.org/3.12/library/shutil.html"
+  ],
+  "questions": [
+    {
+      "id": "py312_01",
+      "question": "A build script needs to create a nested output directory even when its parents are missing, and succeed if that directory already exists. Which pathlib.Path.mkdir options should it use?",
+      "reference": "Use Path.mkdir(parents=True, exist_ok=True). parents=True creates missing parent directories; exist_ok=True permits an existing directory, but does not permit an existing non-directory at the target path.",
+      "source_url": "https://docs.python.org/3.12/library/pathlib.html",
+      "anchor_phrase": "any missing parents of this path",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/pathlib.html", "section": "Path.mkdir", "anchor_phrase": "any missing parents of this path"}]
+    },
+    {
+      "id": "py312_02",
+      "question": "Which json.dumps option keeps non-ASCII characters visible in the resulting JSON string instead of escaping them, and what is its default?",
+      "reference": "Set ensure_ascii=False to retain non-ASCII characters in the JSON string. The default is ensure_ascii=True, which escapes them.",
+      "source_url": "https://docs.python.org/3.12/library/json.html",
+      "anchor_phrase": "these characters will be outputted as-is",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/json.html", "section": "json.dump ensure_ascii; json.dumps shares the same arguments", "anchor_phrase": "these characters will be outputted as-is"}]
+    },
+    {
+      "id": "py312_03",
+      "question": "Which JSONDecodeError attributes identify the failing character offset and its line and column in a malformed configuration document?",
+      "reference": "JSONDecodeError.pos is the character index where parsing failed. lineno and colno give the corresponding line and column.",
+      "source_url": "https://docs.python.org/3.12/library/json.html",
+      "anchor_phrase": "The start index of doc where parsing failed",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/json.html", "section": "json.JSONDecodeError", "anchor_phrase": "The start index of doc where parsing failed"}]
+    },
+    {
+      "id": "py312_04",
+      "question": "When subprocess.run uses check=True and a command exits with a nonzero code, which exception is raised and what diagnostic information does it contain?",
+      "reference": "It raises subprocess.CalledProcessError. The exception records the command arguments and exit code, plus stdout and stderr if those streams were captured.",
+      "source_url": "https://docs.python.org/3.12/library/subprocess.html",
+      "anchor_phrase": "If check is true",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/subprocess.html", "section": "subprocess.run check", "anchor_phrase": "If check is true"}]
+    },
+    {
+      "id": "py312_05",
+      "question": "What happens to the child process when subprocess.run reaches its timeout, and which exception does the caller receive?",
+      "reference": "subprocess.run kills the child and waits for it to finish, then re-raises subprocess.TimeoutExpired. Initial process creation may delay when the timeout exception can be observed.",
+      "source_url": "https://docs.python.org/3.12/library/subprocess.html",
+      "anchor_phrase": "child process will be killed and waited for",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/subprocess.html", "section": "subprocess.run timeout", "anchor_phrase": "child process will be killed and waited for"}]
+    },
+    {
+      "id": "py312_06",
+      "question": "How can unittest.TestCase.assertRaises test an inline block for an expected exception, and what happens if the block raises no exception or a different exception?",
+      "reference": "Use with self.assertRaises(ExpectedException): around the block. The test passes for the expected exception, fails if no exception occurs, and reports an error if a different exception occurs.",
+      "source_url": "https://docs.python.org/3.12/library/unittest.html",
+      "anchor_phrase": "return a context manager so that",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/unittest.html", "section": "TestCase.assertRaises", "anchor_phrase": "return a context manager so that"}]
+    },
+    {
+      "id": "py312_07",
+      "question": "Must a virtual environment be activated before a build script can run its Python interpreter? How can the script use the environment without activation?",
+      "reference": "Activation is optional. Invoke the environment's Python executable by its full path; scripts installed in that environment should also run without activation.",
+      "source_url": "https://docs.python.org/3.12/library/venv.html",
+      "anchor_phrase": "specify the full path to that environment",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/venv.html", "section": "How venvs work", "anchor_phrase": "specify the full path to that environment"}]
+    },
+    {
+      "id": "py312_08",
+      "question": "Why can logging.basicConfig appear to ignore a new configuration after logging is already set up, and which argument makes it replace the existing root handlers?",
+      "reference": "basicConfig normally does nothing when the root logger already has handlers. Set force=True to remove and close those handlers before applying the new configuration.",
+      "source_url": "https://docs.python.org/3.12/library/logging.html",
+      "anchor_phrase": "unless the keyword argument force",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/logging.html", "section": "logging.basicConfig", "anchor_phrase": "unless the keyword argument force"}]
+    },
+    {
+      "id": "py312_09",
+      "question": "How should a sqlite3 query bind a value received from a user, and which placeholder styles are supported?",
+      "reference": "Use parameter substitution through the execute parameters argument rather than interpolating values into SQL. sqlite3 supports question-mark placeholders with a matching-length sequence and named placeholders with a dictionary containing the required keys.",
+      "source_url": "https://docs.python.org/3.12/library/sqlite3.html",
+      "anchor_phrase": "question marks (qmark style) or named placeholders",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/sqlite3.html", "section": "How to use placeholders to bind values in SQL queries", "anchor_phrase": "question marks (qmark style) or named placeholders"}]
+    },
+    {
+      "id": "py312_10",
+      "question": "For a sqlite3 connection with an open transaction, what does leaving a with connection block do on success or an uncaught exception, and does it close the connection?",
+      "reference": "On successful exit it commits the open transaction; an uncaught exception or failed commit causes rollback. The connection context manager does not close the connection and does not itself implicitly open a transaction.",
+      "source_url": "https://docs.python.org/3.12/library/sqlite3.html",
+      "anchor_phrase": "neither implicitly opens a new transaction",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/sqlite3.html", "section": "How to use the connection context manager", "anchor_phrase": "neither implicitly opens a new transaction"}]
+    },
+    {
+      "id": "py312_11",
+      "question": "Which shutil file-copy function attempts to preserve metadata in addition to copying the file, and does inability to preserve metadata alone cause it to raise an exception?",
+      "reference": "Use shutil.copy2. It attempts to preserve metadata, keeps what the platform supports, and does not raise an exception solely because some metadata cannot be preserved.",
+      "source_url": "https://docs.python.org/3.12/library/shutil.html",
+      "anchor_phrase": "also attempts to preserve file metadata",
+      "required_evidence_count": 1,
+      "evidence_sources": [{"source_url": "https://docs.python.org/3.12/library/shutil.html", "section": "shutil.copy2", "anchor_phrase": "also attempts to preserve file metadata"}]
+    },
+    {
+      "id": "py312_12",
+      "question": "A repository helper has a pathlib.Path for a UTF-8 JSON configuration file. Which pathlib method reads decoded text while closing the file, and which json function then converts that text to a Python object?",
+      "reference": "Use path.read_text(encoding='utf-8') to read decoded text as a string; this opens and closes the file. Pass that string to json.loads to deserialize the JSON document into a Python object.",
+      "source_url": "https://docs.python.org/3.12/library/pathlib.html",
+      "anchor_phrase": "Return the decoded contents",
+      "required_evidence_count": 2,
+      "evidence_sources": [
+        {"source_url": "https://docs.python.org/3.12/library/pathlib.html", "section": "Path.read_text", "anchor_phrase": "Return the decoded contents"},
+        {"source_url": "https://docs.python.org/3.12/library/json.html", "section": "json.loads", "anchor_phrase": "but instead of a file-like object"}
+      ]
+    }
+  ]
+}

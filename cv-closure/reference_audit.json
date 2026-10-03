@@ -1,0 +1,117 @@
+{
+  "status": "passed",
+  "questions": 12,
+  "source_evidence_anchors": 13,
+  "questions_sha256": "08406417530c4e49465147907b724dcec69c8a3db3d35da2ed3d1c2e786c40a5",
+  "chunks_sha256": "8b56116f88aa512b3d0a4677600577a8423be2e106473819a43d4edf6b7ca685",
+  "evidence": [
+    {
+      "question_id": "py312_01",
+      "source_url": "https://docs.python.org/3.12/library/pathlib.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "pathlib:006160"
+      ]
+    },
+    {
+      "question_id": "py312_02",
+      "source_url": "https://docs.python.org/3.12/library/json.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "json:000770"
+      ]
+    },
+    {
+      "question_id": "py312_03",
+      "source_url": "https://docs.python.org/3.12/library/json.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "json:002970"
+      ]
+    },
+    {
+      "question_id": "py312_04",
+      "source_url": "https://docs.python.org/3.12/library/subprocess.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "subprocess:000440"
+      ]
+    },
+    {
+      "question_id": "py312_05",
+      "source_url": "https://docs.python.org/3.12/library/subprocess.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "subprocess:000330"
+      ]
+    },
+    {
+      "question_id": "py312_06",
+      "source_url": "https://docs.python.org/3.12/library/unittest.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "unittest:005060",
+        "unittest:005390"
+      ]
+    },
+    {
+      "question_id": "py312_07",
+      "source_url": "https://docs.python.org/3.12/library/venv.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "venv:000990"
+      ]
+    },
+    {
+      "question_id": "py312_08",
+      "source_url": "https://docs.python.org/3.12/library/logging.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "logging:008140"
+      ]
+    },
+    {
+      "question_id": "py312_09",
+      "source_url": "https://docs.python.org/3.12/library/sqlite3.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "sqlite3:008800",
+        "sqlite3:008910"
+      ]
+    },
+    {
+      "question_id": "py312_10",
+      "source_url": "https://docs.python.org/3.12/library/sqlite3.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "sqlite3:010450"
+      ]
+    },
+    {
+      "question_id": "py312_11",
+      "source_url": "https://docs.python.org/3.12/library/shutil.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "shutil:000990"
+      ]
+    },
+    {
+      "question_id": "py312_12",
+      "source_url": "https://docs.python.org/3.12/library/pathlib.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "pathlib:004510",
+        "pathlib:004620"
+      ]
+    },
+    {
+      "question_id": "py312_12",
+      "source_url": "https://docs.python.org/3.12/library/json.html",
+      "anchor_found": true,
+      "anchor_chunk_ids": [
+        "json:001760"
+      ]
+    }
+  ],
+  "policy": "These audit labels are not used by retrieval or answer generation."
+}

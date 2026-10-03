@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "command": "python3 -m unittest test_repair_agent test_repair_gateway",
+  "working_directory": "research-workbench/implementation",
+  "tests": 11,
+  "exit_code": 0,
+  "controller_sha256": "c850591caacde566501f13fdc2125c7a051b313f51184a731f9b764fe9f15499",
+  "gateway_sha256": "88a2443e2a70062d506abacebe1476b371180e829cb1c7aa9b130d82a3f4135c",
+  "limits": "Unit checks use controlled tools/transports; real coding execution is established separately by the preserved agent trace."
+}
