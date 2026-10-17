@@ -1,29 +1,52 @@
-# CV evidence closure
+# Bounded coding agent, RAG evaluation and ML experiment loop
 
-[Executable coding-agent and real RAG evaluation](cv-closure/README.md): pinned documentation corpus, BM25/dense/hybrid retrieval, local generated answers and actual RAGAS judging. The full36-case benchmark and independent108-metric audit are complete. Hybrid measured precision0.8889, recall0.9583 and faithfulness0.8681, with21.029-second median complete answer latency. [Results and error analysis](cv-closure/README.md#verified-results--4-october-2026) document wrong answers and judge errors. Historical CV numeric scores and subsecond end-to-end latency must be revised; the CV file is unchanged.
+Build testable repository repair and bounded ML experimentation, and measure retrieval separately from answer generation and repair success.
 
-# Bounded repository repair and ML experiment agent
+[Project page](showcase/index.html) · [Technical study guide](showcase/guide.html) · [Current status](PROJECT_STATUS.md) · [Decisions](DECISIONS.md) · [Research archive](research-workbench/INDEX.md)
 
-This branch preserves the original course artifacts and adds the new personal research work through 3 October 2026.
+## Verified implementation
 
-- [Current status](research-workbench/CURRENT_STATUS_2026-10-03.md)
-- [Plain-language HTML walkthrough](research-workbench/output/portfolio_progress_explained_2026-10-03.html) — download/open locally
-- [Implementation and checks](research-workbench/implementation/README.md)
-- [First audit](research-workbench/FIRST_SCAN_2026-09-27.md)
-- [Original README](LEGACY_README.md) — historical claims, corrected by the audit
+A real multi-step repair trace with independent target/regression checks; an eight-page, 581-chunk retrieval corpus; 12 source-checked questions and 36 evaluated answers; all 108 RAGAS metric executions preserved. A bounded autoresearch-inspired loop and verified TinyStories candidate experiment also exist.
 
-## Status
+## What changed on 17 October
 
-The completed eight-head candidate scored 0.9169007335 bits per byte versus incumbent 0.9121882524; retain the incumbent. A new bounded 18-record development snapshot adds that outcome and preserves the old17-record snapshot. The proposer requires explicit --history-limit18 to use it; default17 rejects growth. Five tests pass, and no-history reads no database. Retrieval benefit remains unproven.
+Added deterministic source/anchor coverage and citation-ID diagnostics for every saved answer. Hybrid covers 11/13 required anchors at top 3; BM25 and dense each cover 8/13. Ten of twelve answers per strategy contain a valid retrieved-chunk citation. A one-command verifier recomputes raw judge arithmetic and runs controller, gateway and proposer checks.
 
-Read [the completed result](research-workbench/AUTORESEARCH_STATEMENT_REPLAY_RESULT_2026-10-03.md) and [memory refresh](research-workbench/AUTORESEARCH_MEMORY_REFRESH_2026-10-03.md). All experiment calls/jobs are finished. Guy paused expansion to close actual RAG/RAGAS and coding-agent CV claims on another branch. Historical reports and HTML remain earlier snapshots.
+## Verify locally
 
-## Snapshot layout
+Use Python 3.10 or newer in an isolated environment. Saved-evidence verification needs NumPy; it does not need a GPU, model server or downloaded base model.
 
-`research-workbench/implementation` holds project code and compact evidence. Shared foundation helpers and cross-project reports preserve dependencies and the original audit trail. Large raw datasets, checkpoints, model caches, and virtual environments remain external.
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-verify.txt
+.venv/bin/python verify_project.py
+```
 
-Historical reports record earlier stopping points. Read the current status before interpreting older pending statements. The new work does not establish clinical deployment, autonomous-research superiority, or unpublished benchmark claims.
+The command checks saved source/data/output hashes, recomputes scores, checks derived analysis, runs offline regression tests and validates both page link sets. It runs no training or network requests. To save a fresh report, add `--report verification/<new-name>.json`; existing report files are protected from overwrite. Large ignored weights/data may remain external; the report states when optional adapter verification is unavailable.
 
-## Project page and interview guide
+[Verification snapshot](verification/2026-10-17-final.json) · [Training/inference instructions](cv-closure/README.md) · [CV claim register](cv-closure/CLAIM_REGISTER.md)
 
-See the [project landing page](showcase/index.html) and [technical interview guide](showcase/guide.html). Download the HTML files and open them in a browser; GitHub displays their source.
+## Repository layout
+
+| Location | Purpose |
+|---|---|
+| `cv-closure/` | Frozen benchmark implementation, source data instructions and saved outputs |
+| `cv-closure/analyze_results.py` | Reproducible analysis; `--check` compares against the saved derived report |
+| `research-workbench/` | Historical expansion code, protocols, reports and results |
+| `DECISIONS.md` | Accepted, rejected and pending choices with source links |
+| `PROJECT_STATUS.md` / `.json` | Current completion boundaries and next work |
+| `showcase/` | Self-contained landing page and 20-question study guide |
+| `verification/` | Dated verification reports |
+| `LEGACY_README.md` | Original claims, retained for history |
+
+The workbench preserves shared/cross-project foundation files. It is an archive, not a second current entry point. Read the root status first; older pending statements describe their original dates.
+
+## Remaining work
+
+The original 12-question set is small development evidence. Citation presence does not prove entailment. A paired retrieval/no-retrieval benefit for repairs or new experiment proposals is not established. New isolated cluster evaluations are blocked by the SSH timeout on 17 October.
+
+Prepare an independent, source-checked development extension, retaining the original benchmark. Preserve chunk IDs in future judge inputs and add executable API-composition checks. For repair and experiment memory, freeze a paired task/candidate ledger with identical budgets before new isolated runs. Do not tune on sealed outcomes. No new campaign was submitted.
+
+## Open the pages
+
+Download and open `showcase/index.html` in a browser. GitHub displays HTML source; these files are not a public deployment. Page controls explore saved outputs. The ECG replay server, where applicable, is a separate executable model interface.

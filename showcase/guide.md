@@ -276,3 +276,11 @@ A million 384-dimensional float32 vectors require about 1.54 GB before index ove
 5. A manager asks for subsecond responses. Explain what you measured, where generation dominates, and how to test a smaller model without sacrificing correctness.
 
 You are ready when you can trace an action or answer to its raw evidence, derive the selected metrics, and explain at least one real failure in each system. For a question outside the measured scope, propose a test rather than inventing a result.
+
+## 17 October: verification and decisions
+
+Added deterministic source/anchor coverage and citation-ID diagnostics for every saved answer. Hybrid covers 11/13 required anchors at top 3; BM25 and dense each cover 8/13. Ten of twelve answers per strategy contain a valid retrieved-chunk citation. A one-command verifier recomputes raw judge arithmetic and runs controller, gateway and proposer checks.
+
+The original 12-question set is small development evidence. Citation presence does not prove entailment. A paired retrieval/no-retrieval benefit for repairs or new experiment proposals is not established. New isolated cluster evaluations are blocked by the SSH timeout on 17 October.
+
+From the repository root, run `python3 verify_project.py` in an environment with NumPy installed. This verifies saved evidence and regression checks; it does not retrain a model. See [current status](../PROJECT_STATUS.md), [the decision register](../DECISIONS.md), and [the derived analysis](../cv-closure/output/analysis.json).

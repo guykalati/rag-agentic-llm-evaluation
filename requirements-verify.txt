@@ -1,0 +1,2 @@
+# Saved-evidence verification only; model training/inference have separate environments.
+numpy>=1.26,<3

@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parent
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-def verify(out):
+def verify(out, report=None):
     r=json.loads((out/'result.json').read_text());rows=[json.loads(s) for s in (out/'rows.jsonl').read_text().splitlines()];calls={x['call']:x for x in map(json.loads,(out/'judge_calls.jsonl').read_text().splitlines())}
     assert r['status']=='completed' and not r['smoke'] and len(rows)==36
     questions={q['id']:q for q in json.loads((ROOT/'questions.json').read_text())['questions']};chunks={c['id']:c for c in json.loads((ROOT/'corpus/chunks.json').read_text())}
@@ -52,6 +52,6 @@ def verify(out):
             values=[x['ragas'][metric]['value'] for x in selected if x['ragas'][metric]['status']=='ok'];assert len(values)==m['valid_n']
             if values:assert math.isclose(float(np.mean(values)),m['mean'],abs_tol=1e-10)
     audit={'status':'passed','rows':len(rows),'metrics_recomputed_from_raw_judge_verdicts':checked,'raw_prompt_hashes_and_runtime_binding_verified':True,'latency_summaries_recomputed':True,'failures_or_undefined':failures,'result_sha256':sha(out/'result.json'),'limits':'Verifies provenance and calculations, not judge correctness. Judge false negatives need manual review.'}
-    (out/'result_audit.json').write_text(json.dumps(audit,indent=2)+'\n');print(json.dumps(audit,indent=2))
+    (report or out/'result_audit.json').write_text(json.dumps(audit,indent=2)+'\n');print(json.dumps(audit,indent=2))
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=ROOT/'output');verify(p.parse_args().output)
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=ROOT/'output');p.add_argument('--report',type=Path);args=p.parse_args();verify(args.output,args.report)

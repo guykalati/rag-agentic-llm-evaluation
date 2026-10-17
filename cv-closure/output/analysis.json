@@ -1,0 +1,516 @@
+{
+  "kind": "deterministic_retrieval_and_citation_diagnostics",
+  "inputs": {
+    "questions.json": "08406417530c4e49465147907b724dcec69c8a3db3d35da2ed3d1c2e786c40a5",
+    "corpus/chunks.json": "8b56116f88aa512b3d0a4677600577a8423be2e106473819a43d4edf6b7ca685",
+    "output/rows.jsonl": "0883f3bcca2b7a3d28afef8d6214b6d86cf7325f58569f592db49dacf70be7df"
+  },
+  "script_sha256": "279ffa4645671f5d0467a97bfbf68a1314407c5a9ea0335ffe4a04b56f8d5e1f",
+  "summary": {
+    "bm25": {
+      "questions": 12,
+      "anchor_hits": 8,
+      "required_anchors": 13,
+      "questions_with_all_anchors_at_3": 7,
+      "answers_with_valid_citation": 10,
+      "answers_with_unknown_or_unretrieved_id": 0
+    },
+    "dense": {
+      "questions": 12,
+      "anchor_hits": 8,
+      "required_anchors": 13,
+      "questions_with_all_anchors_at_3": 7,
+      "answers_with_valid_citation": 10,
+      "answers_with_unknown_or_unretrieved_id": 0
+    },
+    "hybrid": {
+      "questions": 12,
+      "anchor_hits": 11,
+      "required_anchors": 13,
+      "questions_with_all_anchors_at_3": 10,
+      "answers_with_valid_citation": 10,
+      "answers_with_unknown_or_unretrieved_id": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "py312_01",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "pathlib:006050",
+        "pathlib:006160"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_01",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "pathlib:006050"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_01",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "pathlib:006160"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_02",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "json:000770",
+        "json:003190"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_02",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "json:003190"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_02",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "json:003190"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_03",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "json:002970"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_03",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "json:002970"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_03",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "json:002970"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_04",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "subprocess:000440",
+        "subprocess:001210"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_04",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "subprocess:001210"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_04",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "subprocess:000440",
+        "subprocess:001210"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_05",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "subprocess:000990",
+        "subprocess:004730",
+        "subprocess:004950"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_05",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "subprocess:000330",
+        "subprocess:004400"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_05",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "subprocess:000330"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_06",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "unittest:004950",
+        "unittest:005060"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_06",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "unittest:005060"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_06",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "unittest:005060"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_07",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "venv:001100"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_07",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "venv:000990",
+        "venv:001100"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_07",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "venv:000990",
+        "venv:001100"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_08",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "logging:008030",
+        "logging:008360"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_08",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "logging:008140"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_08",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "logging:008140"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_09",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": false
+    },
+    {
+      "id": "py312_09",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": false
+    },
+    {
+      "id": "py312_09",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": false
+    },
+    {
+      "id": "py312_10",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": false
+    },
+    {
+      "id": "py312_10",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 0,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": false
+    },
+    {
+      "id": "py312_10",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": false
+    },
+    {
+      "id": "py312_11",
+      "strategy": "bm25",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "shutil:000880",
+        "shutil:000990",
+        "shutil:001100"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_11",
+      "strategy": "dense",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "shutil:000990"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_11",
+      "strategy": "hybrid",
+      "required_anchors": 1,
+      "anchors_present_in_index": 1,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": true,
+      "cited_ids": [
+        "shutil:000990",
+        "shutil:001100"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_12",
+      "strategy": "bm25",
+      "required_anchors": 2,
+      "anchors_present_in_index": 2,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "json:001320",
+        "pathlib:004620"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_12",
+      "strategy": "dense",
+      "required_anchors": 2,
+      "anchors_present_in_index": 2,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "json:000000",
+        "pathlib:004620"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    },
+    {
+      "id": "py312_12",
+      "strategy": "hybrid",
+      "required_anchors": 2,
+      "anchors_present_in_index": 2,
+      "anchors_found_at_3": 1,
+      "all_anchors_found_at_3": false,
+      "cited_ids": [
+        "json:001870",
+        "pathlib:004620"
+      ],
+      "unknown_or_unretrieved_ids": [],
+      "has_valid_citation": true
+    }
+  ],
+  "limits": [
+    "Exact source/phrase coverage is a retrieval diagnostic, not semantic relevance or answer correctness.",
+    "Citation existence does not establish that the cited passage entails the answer.",
+    "The 12 original questions are development evidence; this is not a new benchmark or an independent model judge.",
+    "Frozen RAGAS scores and original answers are unchanged."
+  ]
+}

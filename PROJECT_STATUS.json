@@ -1,0 +1,11 @@
+{
+  "reviewed_on": "2026-10-17",
+  "engineering_verification": "passed",
+  "model_training_rerun": false,
+  "scientific_expansion_complete": false,
+  "cluster_probe": "SSH connection timed out before authentication; no jobs submitted",
+  "completed": "A real multi-step repair trace with independent target/regression checks; an eight-page, 581-chunk retrieval corpus; 12 source-checked questions and 36 evaluated answers; all 108 RAGAS metric executions preserved. A bounded autoresearch-inspired loop and verified TinyStories candidate experiment also exist.",
+  "changes_in_this_review": "Added deterministic source/anchor coverage and citation-ID diagnostics for every saved answer. Hybrid covers 11/13 required anchors at top 3; BM25 and dense each cover 8/13. Ten of twelve answers per strategy contain a valid retrieved-chunk citation. A one-command verifier recomputes raw judge arithmetic and runs controller, gateway and proposer checks.",
+  "remaining": "The original 12-question set is small development evidence. Citation presence does not prove entailment. A paired retrieval/no-retrieval benefit for repairs or new experiment proposals is not established. New isolated cluster evaluations are blocked by the SSH timeout on 17 October.",
+  "next": "Prepare an independent, source-checked development extension, retaining the original benchmark. Preserve chunk IDs in future judge inputs and add executable API-composition checks. For repair and experiment memory, freeze a paired task/candidate ledger with identical budgets before new isolated runs. Do not tune on sealed outcomes. No new campaign was submitted."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "repository": "rag-agentic-llm-evaluation",
+  "saved_evidence": {
+    "status": "passed",
+    "rows": 36,
+    "metrics_recomputed_from_raw_judge_verdicts": 108,
+    "raw_prompt_hashes_and_runtime_binding_verified": true,
+    "latency_summaries_recomputed": true,
+    "failures_or_undefined": [],
+    "result_sha256": "bb8f8acc63e4a2812277da42febd15f756c381ad078c6f01b385817285bb8daf",
+    "limits": "Verifies provenance and calculations, not judge correctness. Judge false negatives need manual review."
+  },
+  "derived_analysis_matches_saved_report": true,
+  "offline_tests": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n{\n  \"status\": \"validated_proposal\",\n  \"model\": \"gemma4:12b-it-qat\",\n  \"model_digest\": \"38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3\",\n  \"hypothesis\": \"optimizer test\",\n  \"source_sha256\": \"aa527ed18aa8337ea24dca3d4217e13295c502ff30b3b1c2b75d7864fc27362c\",\n  \"candidate_sha256\": \"7a0c50ca075708246484389d56e805b99bc0810c3df989b3aa5407dc1ff303cc\",\n  \"history_records\": 0,\n  \"history_record_cap\": 17,\n  \"history_snapshot_sha256\": null,\n  \"retrieval_enabled\": false,\n  \"proposal_seed\": 123,\n  \"proposal_temperature\": 0.3,\n  \"elapsed_seconds\": 0.01104004199441988,\n  \"prompt_tokens\": null,\n  \"generated_tokens\": null,\n  \"parameter_profile\": {\n    \"width\": 384,\n    \"heads\": 6,\n    \"head_dimension\": 64,\n    \"feed_forward\": 1536,\n    \"layers\": 4,\n    \"parameter_count\": 7295232,\n    \"scope\": \"Protected Model with256byte tokens,256positions and tied output embedding only; not a runtime prediction.\"\n  },\n  \"development_memory_benefit\": \"unmeasured\"\n}\n................\n----------------------------------------------------------------------\nRan 16 tests in 0.186s\n\nOK",
+  "landing_and_guide_link_checks": 2,
+  "network_or_training_calls": false,
+  "limits": "Verifies existing artifacts and implementation contracts; it does not rerun model training or establish scientific adequacy."
+}
