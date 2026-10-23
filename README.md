@@ -35,7 +35,7 @@ The command checks saved source/data/output hashes, recomputes scores, checks de
 | `research-workbench/` | Historical expansion code, protocols, reports and results |
 | `DECISIONS.md` | Accepted, rejected and pending choices with source links |
 | `PROJECT_STATUS.md` / `.json` | Current completion boundaries and next work |
-| `showcase/` | Self-contained landing page and 20-question study guide |
+| `showcase/` | Self-contained landing page and 25-question study guide |
 | `verification/` | Dated verification reports |
 | `LEGACY_README.md` | Original claims, retained for history |
 

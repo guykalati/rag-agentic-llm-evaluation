@@ -2,6 +2,58 @@
 
 A study guide for Guy Kalati. This repository contains two evaluated systems: a bounded repository-repair agent and a documentation RAG benchmark. They share an interest in tool use and evidence, but the RAG results do not measure coding repair success.
 
+## Interview practice: pitches and quick Q&A
+
+Use these as speaking outlines. Practise the ideas in your own words; do not memorize wording you cannot explain. Expand the answers only after your own attempt.
+
+### 20–30 seconds: the short introduction
+
+I built a Python coding agent that can inspect files, make controlled edits and request isolated tests. Separately, I compared three retrieval strategies over Python documentation. I saved the repair trace, answers and raw judge outputs so I could verify results and explain failures.
+
+### About one minute: the project story
+
+This project has two evaluated paths. The coding agent receives a repository task and requests actions through a Python controller. A gateway restricts files and exact edits, and fixed tests check the candidate. One saved repair passes independent target and regression checks. The second path is documentation RAG: retrieve three chunks, generate an answer and evaluate it with RAGAS. I compared BM25, MiniLM dense retrieval and hybrid rank fusion on the same twelve questions. Hybrid had the strongest observed aggregate scores and exact-anchor coverage. The useful lesson was that a judge score is not answer correctness: I found wrong API answers with full faithfulness and correct answers scored zero.
+
+### Two-minute structure: the technical follow-up
+
+For the repair path, I explain the boundary between a model requesting a tool and the controller actually executing it. The controller validates arguments and paths, applies an edit only when the old text matches once, and returns test observations. An independent verifier runs the final target and regression tests after the agent finishes. That demonstrates one successful repair, not a general solve rate. For RAG, I freeze the documentation snapshots, question references, chunking, top-three budget and answer model. Dense retrieval uses normalized vectors and exact dot products; hybrid uses reciprocal rank fusion rather than averaging incompatible raw scores. I preserve raw judge prompts and verdicts so the arithmetic can be recomputed. Complete answers take about twenty-one seconds at the median, while retrieval alone is below one second. The experiment-agent extension is separate again: it can propose bounded training changes and consult history, but the latest candidate lost to the incumbent. I cannot claim retrieval made it a better researcher.
+
+### Five questions to answer without notes
+
+<details class="quick-qa"><summary>Is the coding agent the RAG system?</summary>
+
+They are separate evaluated paths. Documentation RAG scores do not measure repair success.
+
+</details>
+
+<details class="quick-qa"><summary>Why a restricted gateway?</summary>
+
+The application must enforce allowed files, edits and tests. A natural-language instruction does not enforce those boundaries.
+
+</details>
+
+<details class="quick-qa"><summary>Why hybrid ranking?</summary>
+
+It combines sparse and dense rankings without assuming their scores have the same scale. It performed best on the observed small benchmark.
+
+</details>
+
+<details class="quick-qa"><summary>Can faithfulness 1 accompany a wrong answer?</summary>
+
+Yes. A response can follow a retrieved passage about the wrong API. Faithfulness does not establish task correctness.
+
+</details>
+
+<details class="quick-qa"><summary>Were complete answers sub-second?</summary>
+
+No. Hybrid median retrieval was about 0.343 seconds; complete answers were about 21.03 seconds on the measured local setup.
+
+</details>
+
+### Speaking check
+
+Record one attempt. Check that you named the input, your implementation, the evaluation, a measured result and a limitation. Then trace one claim to its source file. Revisit any sentence you cannot defend with a follow-up answer.
+
 ## 1. The explanation you should start with
 
 I built a Python controller that lets a language model inspect candidate code, edit it and request isolated tests. I also built a retrieval pipeline over Python documentation and compared keyword search, dense embeddings and a hybrid ranking. I saved the answers and raw evaluation verdicts so I could check both the scores and the mistakes behind them.
